@@ -22,6 +22,11 @@ module.exports = {
         type: Sequelize.STRING.BINARY,
         allowNull: false,
       },
+      imgUrl: {
+        type: Sequelize.TEXT,
+        defaultValue:
+          "https://capstone-profile.s3.us-west-1.amazonaws.com/profilelego.png",
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
