@@ -1,7 +1,7 @@
 # Authenticate Me - Backend
 
 In this multi-part project, you will learn how to put together an entire
-Express + React application with authentication.CORS
+Express + React application with authentication.
 
 ## Phase 0: Backend Set Up
 
