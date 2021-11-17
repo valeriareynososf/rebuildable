@@ -4,7 +4,7 @@ const asyncHandler = require("express-async-handler");
 
 const { handleValidationErrors } = require("../../utils/validation");
 const { setTokenCookie, requireAuth } = require("../../utils/auth");
-const { User } = require("../../db/models");
+const { User, Post, Comment } = require("../../db/models");
 
 const router = express.Router();
 
@@ -43,5 +43,69 @@ router.post(
     });
   }),
 );
+
+// Edit
+router.put("/:id(\\d+)", requireAuth, asyncHandler(async (req, res) => {
+    const user = await User.findByPk(req.params.id);
+    const { email, username, imgUrl } = req.body;
+    const users = await user.update({ email, username, imgUrl });
+    return res.json(users);
+  })
+);
+
+//users GET
+router.get("/", asyncHandler(async (req, res) => {
+    const user = await User.findAll();
+    return res.json(user);
+  })
+);
+
+//users GET each one
+router.get("/:id(\\d+)", asyncHandler(async (req, res) => {
+    const userId = req.params.id;
+    const user = await User.getCurrentUserById(userId);
+    return res.json(user);
+  })
+);
+
+//get users posts
+router.get("/:id(\\d+)/posts", asyncHandler(async (req, res) => {
+    const userId = req.params.id;
+    const user = await User.getCurrentUserById(userId);
+    const posts = await Post.findAll({
+      where: {
+        userId,
+      },
+    });
+    return res.json(posts);
+  })
+);
+
+//create a post
+router.post("/:id(\\d+)/posts", requireAuth, asyncHandler(async (req, res) => {
+    const { title, imgUrl, details, instructions } = req.body;
+    const userId = req.params.id;
+     const user = await User.getCurrentUserById(userId);
+    const posts = await Post.create({
+      title,
+      imgUrl,
+      userId,
+      details,
+      instructions,
+    });
+    return res.json(posts);
+  })
+);
+
+//get users comments
+router.get('/:id(\\d+)/comments', asyncHandler(async (req, res) => {
+   const user_Id = req.params.id;
+     const comments = await Comment.findAll({
+       where: {
+         user_Id,
+       },
+     });
+  return res.json(comments);
+}));
 
 module.exports = router;
