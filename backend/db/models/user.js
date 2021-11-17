@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
       imgUrl: {
         type: DataTypes.TEXT,
         defaultValue:
-          "https://profileimages1.s3.us-west-1.amazonaws.com/defaultimg.png",
+          "https://capstone-profile.s3.us-west-1.amazonaws.com/profilelego.png",
       },
       hashedPassword: {
         type: DataTypes.STRING.BINARY,
@@ -56,8 +56,8 @@ module.exports = (sequelize, DataTypes) => {
   );
   User.associate = function (models) {
     // associations can be defined here
-    // User.hasMany(models.Post, { foreignKey: "userId" });
-    // User.hasMany(models.Comment, { foreignKey: "userId" });
+     User.hasMany(models.Post, { foreignKey: "userId" });
+     User.hasMany(models.Comment, { foreignKey: "userId" });
   };
   User.prototype.toSafeObject = function () {
     const { id, username, email } = this; // context will be the User instance
