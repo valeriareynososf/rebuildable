@@ -1,0 +1,25 @@
+.allPostsContainer {
+ padding-top: 15px;
+     margin: 0 430px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 140px;
+    margin-right: 140px;
+}
+
+.postsDiv {
+    height: 400px;
+    width: 500px;
+    object-fit: none;
+    object-position: 50% .5;
+    padding: 3px;
+    width: 10 vw;
+}
+
+
+.legoImg {
+    border: 3px solid green;
+    width: 415px;
+    height: 350px;
+}
