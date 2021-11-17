@@ -18,6 +18,7 @@ export const singleUser = (id) => async (dispatch) => {
   if (response.ok) {
     const user = await response.json();
     dispatch(oneUser(user));
+    // return user
   }
 };
 

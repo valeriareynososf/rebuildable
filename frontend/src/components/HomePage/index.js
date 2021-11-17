@@ -32,7 +32,7 @@ function HomePage() {
                   {Object.values(users).map((user) => (
                     <span key={user.id}>
                       {single.userId === user.id ? (
-                        <Link key={user.id} to={`/users/${user.username}`}>
+                        <Link key={user.id} to={`/users/${user.id}`}>
                           {user.username}
                         </Link>
                       ) : null}
