@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 // import LoginFormPage from "./components/LoginFormPage";
 import HomePage from "./components/HomePage";
 import PostPage from "./components/HomePage/PostPage";
+import ProfilePage from "./components/ProfilePage/index"
 import * as sessionActions from './store/session';
 import Navigation from './components/Navigation';
 // import { Modal } from './context/Modal';
@@ -34,17 +35,16 @@ function App() {
           <Route path="/posts/:postId" exact>
             <PostPage />
           </Route>
-          {/* <Route path="/login" >
-            <LoginFormPage />
-          </Route> */}
-          {/* <Route path='/signup'>
-            <SignupFormPage />
-          </Route> */}
+          <Route path="/users/:userid" exact>
+            <ProfilePage />
+          </Route>
           <Route path="/">
-            <h2 style={{
+            <h2
+              style={{
                 display: "flex",
                 justifyContent: "center",
-              }}>
+              }}
+            >
               Page Not Found
             </h2>
           </Route>
