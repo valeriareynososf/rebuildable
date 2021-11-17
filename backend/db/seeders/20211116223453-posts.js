@@ -52,7 +52,7 @@ Space Shuttle Program, we take the opportunity to revisit this famous mission.`,
          title: "MOC - Caterpillar M322D wheel excavator (42043 C-model)",
          imgUrl:
            "https://capstone-profile.s3.us-west-1.amazonaws.com/excavator.jpeg",
-         userId: 4,
+         userId: 1,
          details: `Wheeled excavator built just from 1 model parts (42043 Mercedes Benz), with many functions`,
          instructions:
            "https://capstone-profile.s3.us-west-1.amazonaws.com/shuttleinstructions.png",
