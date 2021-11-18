@@ -51,6 +51,7 @@ export const userPosts = (id) => async (dispatch) => {
   }
 }
 
+//add post
 export const addPost = (post, id) => async (dispatch) => {
   const { title, imgUrl, details, instructions } = post;
   const response = await csrfFetch(`/api/users/${id}/posts`, {
@@ -67,6 +68,24 @@ export const addPost = (post, id) => async (dispatch) => {
   return response;
 };
 
+//edit a post
+export const editPost = (post, id) => async (dispatch) => {
+  const { title, imgUrl, details, instructions } = post;
+  const response = await csrfFetch(`/api/posts/${id}`, {
+    method: "PUT",
+    body: JSON.stringify({
+      title,
+      imgUrl,
+      details,
+      instructions,
+    }),
+  });
+  if (response.ok) {
+  const data = await response.json();
+  dispatch(add_post(data));
+  return data;
+  }
+};
 
 const initialState = { posts: null };
 

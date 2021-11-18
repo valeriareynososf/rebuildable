@@ -6,6 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import HomePage from "./components/HomePage";
 import PostPage from "./components/HomePage/PostPage";
 import ProfilePage from "./components/ProfilePage/index"
+import UpdateBuild from './components/ProfilePage/UpdateMOC';
 import * as sessionActions from './store/session';
 import Navigation from './components/Navigation';
 // import { Modal } from './context/Modal';
@@ -37,6 +38,9 @@ function App() {
           </Route>
           <Route path="/users/:userid" exact>
             <ProfilePage />
+          </Route>
+          <Route path="/posts/:postId/edit" exact>
+            <UpdateBuild />
           </Route>
           <Route path="/">
             <h2
