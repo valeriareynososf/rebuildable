@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
-"scripts": {
+  "scripts": {
     "sequelize": "sequelize",
     "sequelize-cli": "sequelize-cli",
     "start": "per-env",
@@ -26,7 +26,7 @@
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "per-env": "^1.0.2",
-    "pg": "^8.4.2",
+    "pg": "^8.7.1",
     "sequelize": "^6.3.5",
     "sequelize-cli": "^6.2.0"
   },
