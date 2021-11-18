@@ -12,10 +12,15 @@
     "sequelize-cli": "npm run --prefix backend sequelize-cli",
     "start": "npm start --prefix backend"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valeriareynososf/rebuildable.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "pg": "^8.7.1"
-  }
+  "bugs": {
+    "url": "https://github.com/valeriareynososf/rebuildable/issues"
+  },
+  "homepage": "https://github.com/valeriareynososf/rebuildable#readme"
 }
