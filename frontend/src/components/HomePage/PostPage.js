@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import { singlePost } from "../../store/posts";
-import { postComments, addComment } from "../../store/comments";
+import { postComments, addComment, editComment } from "../../store/comments";
 
 function PostPage() {
     const dispatch = useDispatch();
@@ -10,6 +10,7 @@ function PostPage() {
       const posts = useSelector((store) => store.postReducer?.posts);
 const [content, setContent] = useState("");
 const comments = useSelector((store) => store.commentReducer.comments);
+const id = useSelector((state) => state.session.user?.id);
 // const [errors, setErrors] = useState([]);
 
 useEffect(() => {
@@ -50,15 +51,25 @@ const handleSubmit = (e) => {
         </form>
       </div>
       <div>
-        {comments !== null ? ( 
+        {comments !== null ? (
           <>
-          {Object.values(comments).map((comment) => (
-            <>
- {comment.content}
- </>
-           ))}
-           </>
-          ) : null}
+            {Object.values(comments).map((comment) => (
+              <>
+              <div>
+                {comment.content}
+              </div>
+                {id === comment.user_Id ? (
+                  <>
+                  {console.log(comment.user_Id)}
+                  <button>
+                    delete
+                  </button>
+                  </>
+                ) : null}
+              </>
+            ))}
+          </>
+        ) : null}
       </div>
     </div>
   );
