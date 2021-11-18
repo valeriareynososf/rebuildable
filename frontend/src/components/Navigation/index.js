@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import AddMOC from "../Navigation/AddMOC"
+import { Modal } from "../../context/Modal";
 import * as sessionActions from "../../store/session";
 import "./Navigation.css";
 
@@ -12,6 +14,7 @@ function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
+   const [showModal, setShowModal] = useState(false);
 
   const demonLogin = async () => {
     setCredential("demo@user.io");
@@ -40,6 +43,12 @@ function Navigation({ isLoaded }) {
         <NavLink exact to="/">
           Home
         </NavLink>
+        <button onClick={() => setShowModal(true)}>Submit a MOC</button>
+        {showModal && (
+          <Modal onClose={() => setShowModal(false)}>
+            <AddMOC />
+          </Modal>
+        )}
         {isLoaded && sessionLinks}
       </li>
     </ul>
