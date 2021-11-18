@@ -2,7 +2,7 @@
   "name": "capstone",
   "version": "1.0.0",
    "engines": {
-    "node": "14x"
+    "node": "17.0.1"
   },
   "description": "",
   "main": "index.js",
