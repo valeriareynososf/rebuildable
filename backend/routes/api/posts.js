@@ -1,7 +1,7 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
 const { requireAuth } = require("../../utils/auth");
-const { Post } = require("../../db/models");
+const { Post, Comment } = require("../../db/models");
 
 const router = express.Router();
 
@@ -30,11 +30,37 @@ router.put("/:id(\\d+)", requireAuth, asyncHandler(async (req, res) => {
   })
 );
 
+//delete a post
 router.delete("/:id(\\d+)", requireAuth, asyncHandler(async (req, res) => {
     const post = await Post.findByPk(req.params.id);
     post.destroy();
     return res.json({ deleted: post });
   })
 );
+
+//create a comment
+router.post("/:id(\\d+)/comments", requireAuth, asyncHandler(async (req, res) => {
+    const { content } = req.body;
+    const postId = req.params.id;
+    const userId = req.user.id;
+    const comments = await Comment.create({
+      userId,
+      postId,
+      content,
+    });
+    return res.json(comments);
+  })
+);
+
+//get posts comments
+router.get('/:id(\\d+)/comments', asyncHandler(async (req, res) => {
+   const postId = req.params.id;
+     const comments = await Comment.findAll({
+       where: {
+         postId,
+       },
+     });
+  return res.json(comments);
+}));
 
 module.exports = router;
