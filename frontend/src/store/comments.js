@@ -61,7 +61,6 @@ export const usersComments = (id) => async (dispatch) => {
 
 //add comment
 export const addComment = (content, id) => async (dispatch) => {
-  //   const { content } = comment;
   const response = await csrfFetch(`/api/posts/${id}/comments`, {
     method: "POST",
     body: JSON.stringify({
