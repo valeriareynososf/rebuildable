@@ -42,6 +42,15 @@ export const singlePost = (id) => async (dispatch) => {
   return response;
 };
 
+
+export const userPosts = (id) => async (dispatch) => {
+  const response = await fetch(`/api/users/${id}/posts`);
+  if (response.ok) {
+    const posts = await response.json();
+    dispatch(load(posts, id));
+  }
+}
+
 const initialState = { posts: null };
 
 const postReducer = (state = initialState, action) => {
