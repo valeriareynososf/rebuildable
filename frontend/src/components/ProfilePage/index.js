@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { singleUser } from "../../store/singleuser";
 import { getUser } from "../../store/users";
-import { userPosts } from "../../store/posts"
+import { userPosts, deletePost } from "../../store/posts";
 import { Modal } from "../../context/Modal";
 import UpdateBuild from "../ProfilePage/UpdateMOC"
 import "./profile.css";
@@ -28,7 +28,12 @@ const id = useSelector((state) => state.session.user?.id);
     if (!posts){
         return null
     }
-
+function deletePostf(){
+const deletepost = dispatch(deletePost(id));
+if (deletepost) {
+  window.location.reload();
+}
+}
   return (
     <div>
       <h2>Profile</h2>
@@ -61,11 +66,12 @@ const id = useSelector((state) => state.session.user?.id);
                     </Link>
                     {id === post.userId ? (
                       <>
-                        <Link
-                          to={`/posts/${post.id}/edit`}
-                          key={post.id}>
+                        <Link to={`/posts/${post.id}/edit`} key={post.id}>
                           Update MOC
                         </Link>
+                        <button onClick={() => deletePostf(post.id)}>
+                          delete
+                        </button>
                       </>
                     ) : null}
                   </>

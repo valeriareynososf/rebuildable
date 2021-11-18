@@ -87,6 +87,17 @@ export const editPost = (post, id) => async (dispatch) => {
   }
 };
 
+//delete a post
+export const deletePost = (id) => async (dispatch) => {
+  const response = await csrfFetch(`/api/posts/${id}`, {
+    method: "delete"});
+  if (response.ok) {
+  const data = await response.json();
+  dispatch(remove(data));
+  return data;
+  }
+};
+
 const initialState = { posts: null };
 
 const postReducer = (state = initialState, action) => {
