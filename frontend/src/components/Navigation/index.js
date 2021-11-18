@@ -46,7 +46,7 @@ function Navigation({ isLoaded }) {
         <button onClick={() => setShowModal(true)}>Submit a MOC</button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
-            <AddMOC />
+            <AddMOC setShowModal={setShowModal}/>
           </Modal>
         )}
         {isLoaded && sessionLinks}

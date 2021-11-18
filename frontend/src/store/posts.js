@@ -51,6 +51,23 @@ export const userPosts = (id) => async (dispatch) => {
   }
 }
 
+export const addPost = (post, id) => async (dispatch) => {
+  const { title, imgUrl, details, instructions } = post;
+  const response = await csrfFetch(`/api/users/${id}/posts`, {
+    method: "POST",
+    body: JSON.stringify({
+      title,
+      imgUrl,
+      details,
+      instructions,
+    }),
+  });
+  const data = await response.json();
+  dispatch(add_post(data));
+  return response;
+};
+
+
 const initialState = { posts: null };
 
 const postReducer = (state = initialState, action) => {

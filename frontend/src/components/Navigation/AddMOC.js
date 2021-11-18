@@ -1,15 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { addPost } from "../../store/posts"
 
-function AddMOC() {
+function AddMOC({ setShowModal }) {
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
   const [imgUrl, setImgUrl] = useState("");
   const [instructions, setInstructions] = useState("");
   const [details, setDetails] = useState("");
-// const [errors, setErrors] = useState([]);
+  // const [errors, setErrors] = useState([]);
+  const id = useSelector((state) => state.session.user?.id);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setShowModal(false);
+    return dispatch(addPost({ title, imgUrl, details, instructions }, id));
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label>Title</label>
       <input
         type="text"
