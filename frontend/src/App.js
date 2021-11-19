@@ -7,6 +7,7 @@ import HomePage from "./components/HomePage";
 import PostPage from "./components/HomePage/PostPage";
 import ProfilePage from "./components/ProfilePage/index"
 import UpdateBuild from './components/ProfilePage/UpdateMOC';
+import EditComment from './components/HomePage/EditComment';
 import * as sessionActions from './store/session';
 import Navigation from './components/Navigation';
 // import { Modal } from './context/Modal';
@@ -51,6 +52,9 @@ function App() {
             >
               Page Not Found
             </h2>
+          </Route>
+          <Route path="/posts/:postId/comment/:commentId" exact>
+            <EditComment />
           </Route>
         </Switch>
       )}

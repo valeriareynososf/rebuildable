@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory, Link } from "react-router-dom";
 import { singlePost } from "../../store/posts";
+import { Modal } from "../../context/Modal";
+import EditComment from "./EditComment";
 import {
   postComments,
   addComment,
@@ -17,6 +19,7 @@ function PostPage() {
 const [content, setContent] = useState("");
 const comments = useSelector((store) => store.commentReducer.comments);
 const id = useSelector((state) => state.session.user?.id);
+const [showModal, setShowModal] = useState(false);
 // const [errors, setErrors] = useState([]);
 
 useEffect(() => {
@@ -28,6 +31,8 @@ const handleSubmit = (e) => {
   e.preventDefault();
   return dispatch(addComment(content, postId));
 }
+
+
 function deleteBtn(id){
 const deleted = dispatch(deleteComment(id));
 if (deleted) {
@@ -68,16 +73,36 @@ window.location.reload();
           <>
             {Object.values(comments).map((comment) => (
               <>
-                <div>{comment.content}</div>
-                {id === comment.user_Id ? (
-                  <>
-                    <button onClick={() => deleteBtn(comment.id)}>
-                      delete
-                    </button>
-                  </>
-                ) : null}
+                <div>
+                  {comment.content}
+                  <br />
+                  {id === comment.user_Id ? (
+                    <>
+                      <button onClick={() => deleteBtn(comment.id)}>
+                        delete
+                      </button>
+                    </>
+                  ) : null}
+                  {id === comment.user_Id ? (
+                    <>
+                      <button
+                        onClick={() => setShowModal(true)}>
+                        Edit Comment{" "}
+                      </button>
+                      {showModal && (
+                        <Modal onClose={() => setShowModal(false)}>
+                          <EditComment
+                            setShowModal={setShowModal}
+                            comment={comment}
+                          />
+                        </Modal>
+                      )}
+                    </>
+                  ) : null}
+                </div>
               </>
             ))}
+            <br />
           </>
         ) : null}
       </div>
