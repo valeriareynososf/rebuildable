@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { singleUser } from "../../store/singleuser";
+import { singleUser } from "../../store/singleUser";
 import { getUser } from "../../store/users";
 import { userPosts, deletePost } from "../../store/posts";
 import { Modal } from "../../context/Modal";
