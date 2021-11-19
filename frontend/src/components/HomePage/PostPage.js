@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 import { singlePost } from "../../store/posts";
-import { postComments, addComment, editComment } from "../../store/comments";
+import {
+  postComments,
+  addComment,
+  editComment,
+  deleteComment,
+} from "../../store/comments";
 
 function PostPage() {
     const dispatch = useDispatch();
      const { postId } = useParams();
+     const history = useHistory();
       const posts = useSelector((store) => store.postReducer?.posts);
 const [content, setContent] = useState("");
 const comments = useSelector((store) => store.commentReducer.comments);
@@ -21,6 +27,13 @@ useEffect(() => {
 const handleSubmit = (e) => {
   e.preventDefault();
   return dispatch(addComment(content, postId));
+}
+function deleteBtn(id){
+const deleted = dispatch(deleteComment(id));
+if (deleted) {
+//  history.push(`/posts/${postId}`);
+window.location.reload();
+}
 }
 
   return (
@@ -55,15 +68,12 @@ const handleSubmit = (e) => {
           <>
             {Object.values(comments).map((comment) => (
               <>
-              <div>
-                {comment.content}
-              </div>
+                <div>{comment.content}</div>
                 {id === comment.user_Id ? (
                   <>
-                  {console.log(comment.user_Id)}
-                  <button>
-                    delete
-                  </button>
+                    <button onClick={() => deleteBtn(comment.id)}>
+                      delete
+                    </button>
                   </>
                 ) : null}
               </>

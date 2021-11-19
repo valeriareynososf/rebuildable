@@ -42,9 +42,9 @@ router.delete("/:id(\\d+)", requireAuth, asyncHandler(async (req, res) => {
 router.post("/:id(\\d+)/comments", requireAuth, asyncHandler(async (req, res) => {
     const { content } = req.body;
     const postId = req.params.id;
-    const userId = req.user.id;
+    const user_Id = req.user.id;
     const comments = await Comment.create({
-      userId,
+      user_Id,
       postId,
       content,
     });
