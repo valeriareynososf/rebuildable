@@ -4,18 +4,14 @@ import { useParams, useHistory, Link } from "react-router-dom";
 import { singlePost } from "../../store/posts";
 import { Modal } from "../../context/Modal";
 import EditComment from "./EditComment";
-import {
-  postComments,
-  addComment,
-  editComment,
-  deleteComment,
-} from "../../store/comments";
+import { postComments, addComment, editComment, deleteComment } from "../../store/comments";
+import "./homepage.css";
 
 function PostPage() {
-    const dispatch = useDispatch();
-     const { postId } = useParams();
-     const history = useHistory();
-      const posts = useSelector((store) => store.postReducer?.posts);
+const dispatch = useDispatch();
+const { postId } = useParams();
+const history = useHistory();
+const posts = useSelector((store) => store.postReducer?.posts);
 const [content, setContent] = useState("");
 const comments = useSelector((store) => store.commentReducer.comments);
 const id = useSelector((state) => state.session.user?.id);
@@ -29,9 +25,9 @@ useEffect(() => {
 
 const handleSubmit = (e) => {
   e.preventDefault();
+  setContent("");
   return dispatch(addComment(content, postId));
 }
-
 
 function deleteBtn(id){
 const deleted = dispatch(deleteComment(id));
@@ -70,40 +66,32 @@ window.location.reload();
       </div>
       <div>
         {comments !== null ? (
-          <>
+          <div>
             {Object.values(comments).map((comment) => (
-              <>
-                <div>
-                  {comment.content}
-                  <br />
-                  {id === comment.user_Id ? (
-                    <>
-                      <button onClick={() => deleteBtn(comment.id)}>
-                        delete
-                      </button>
-                    </>
-                  ) : null}
-                  {id === comment.user_Id ? (
-                    <>
-                      <button
-                        onClick={() => setShowModal(true)}>
-                        Edit Comment{" "}
-                      </button>
-                      {showModal && (
-                        <Modal onClose={() => setShowModal(false)}>
-                          <EditComment
-                            setShowModal={setShowModal}
-                            comment={comment}
-                          />
-                        </Modal>
-                      )}
-                    </>
-                  ) : null}
-                </div>
-              </>
+              <div key={comment.id} className="commentDiv">
+                {comment.content}
+                {id === comment.user_Id ? (
+                  <>
+                    <button onClick={() => setShowModal(true)} className="editbtn">
+                      Edit Comment{" "}
+                    </button>
+                    {showModal && (
+                      <Modal onClose={() => setShowModal(false)}>
+                        <EditComment
+                          setShowModal={setShowModal}
+                          comment={comment}
+                        />
+                      </Modal>
+                    )}
+                  </>
+                ) : null}
+                {id === comment.user_Id ? (
+                  <button onClick={() => deleteBtn(comment.id)}>delete</button>
+                ) : null}
+              </div>
             ))}
             <br />
-          </>
+          </div>
         ) : null}
       </div>
     </div>

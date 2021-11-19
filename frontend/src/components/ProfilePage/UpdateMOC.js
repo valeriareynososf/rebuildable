@@ -6,16 +6,21 @@ import { editPost } from "../../store/posts";
 function UpdateBuild() {
   const dispatch = useDispatch();
    const { postId } = useParams();
-  const [title, setTitle] = useState("");
-  const [imgUrl, setImgUrl] = useState("");
-  const [instructions, setInstructions] = useState("");
-  const [details, setDetails] = useState("");
+    const history = useHistory();
+    const post = useSelector((store) => store.postReducer?.posts?.[postId]);
+  const [title, setTitle] = useState(post.title);
+  const [imgUrl, setImgUrl] = useState(post.imgUrl);
+  const [instructions, setInstructions] = useState(post.instructions);
+  const [details, setDetails] = useState(post.details);
   // const [errors, setErrors] = useState([]);
   //const id = useSelector((state) => state.session.user?.id);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    return dispatch(editPost({ title, imgUrl, details, instructions }, postId));
+    const editp = dispatch(editPost({ title, imgUrl, details, instructions }, postId));
+    if (editp){
+      history.push(`/posts/${postId}`);
+    }
   };
 // console.log("POST ID?!", postId);
   return (

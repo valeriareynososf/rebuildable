@@ -23,3 +23,11 @@
     width: 415px;
     height: 350px;
 }
+
+.editbtn {
+    cursor: pointer;
+}
+
+.commentDiv {
+    border: 3px solid green;
+}
