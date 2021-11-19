@@ -7,6 +7,7 @@ import { getUser } from "../../store/users";
 import { userPosts, deletePost } from "../../store/posts";
 import { Modal } from "../../context/Modal";
 import UpdateBuild from "../ProfilePage/UpdateMOC"
+import EditProfile from "../ProfilePage/editProfile"
 import "./profile.css";
 
 function ProfilePage() {
@@ -15,6 +16,7 @@ function ProfilePage() {
 const user = useSelector((state) => state.singleReducer.main);
 const posts = useSelector((store) => store.postReducer?.posts);
 const id = useSelector((state) => state.session.user?.id);
+const [showModal, setShowModal] = useState(false);
 //   const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
@@ -42,11 +44,12 @@ if (deletepost) {
       {user.username}
       {user.id === id && user.id !== 1 ? (
         <>
-          {/* <Link to={`/artists/${id}/edit`} key={id}>
-              edit profile
-            </Link> */}
-          <button>Edit your Profile</button>
-          {/* {showEdit ? <EditProfile user={user} close={setShowEdit} /> : null} */}
+          <button onClick={() => setShowModal(true)}>Edit Porfile </button>
+          {showModal && (
+            <Modal onClose={() => setShowModal(false)}>
+              <EditProfile setShowModal={setShowModal} user={user} />
+            </Modal>
+          )}
         </>
       ) : null}
       <div>

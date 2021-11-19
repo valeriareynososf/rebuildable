@@ -79,7 +79,7 @@ window.location.reload();
                       <Modal onClose={() => setShowModal(false)}>
                         <EditComment
                           setShowModal={setShowModal}
-                          comment={comment}
+                          comment={comment.content}
                         />
                       </Modal>
                     )}

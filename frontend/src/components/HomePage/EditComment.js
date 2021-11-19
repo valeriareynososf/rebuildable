@@ -4,6 +4,9 @@ import { editComment } from "../../store/comments";
 
 function EditComment({ comment, setShowModal }) {
   const dispatch = useDispatch();
+  
+     console.log("THIS IS THE COMMENT", comment);
+   
   const [content, setContent] = useState(comment.content);
   const [errors, setErrors] = useState([]);
 
