@@ -7,7 +7,7 @@ function EditProfile({ user, setShowModal }) {
   const [email, setEmail] = useState(user.email);
   const [imgUrl, setImgUrl] = useState(user.imgUrl);
   const [username, setUsername] = useState(user.username);
-  // const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,11 +18,11 @@ function EditProfile({ user, setShowModal }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      {/* <ul>
+      <ul>
         {errors.map((error) => (
           <li key={error}>{error}</li>
         ))}
-      </ul> */}
+      </ul>
       <label>Email</label>
       <br />
       <input
@@ -48,7 +48,7 @@ function EditProfile({ user, setShowModal }) {
         onChange={(e) => setImgUrl(e.target.value)}
       />
       <br />
-      <button type="submit">
+      <button type="submit" disabled={errors.length > 0}>
         Update Profile
       </button>
     </form>

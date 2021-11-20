@@ -72,17 +72,9 @@ window.location.reload();
                 {comment.content}
                 {id === comment.user_Id ? (
                   <>
-                    <button onClick={() => setShowModal(true)} className="editbtn">
-                      Edit Comment{" "}
-                    </button>
-                    {showModal && (
-                      <Modal onClose={() => setShowModal(false)}>
-                        <EditComment
-                          setShowModal={setShowModal}
-                          comment={comment.content}
-                        />
-                      </Modal>
-                    )}
+                    <Link key={comment.id} to={`/comments/${comment.id}`}>
+                      Edit Comment
+                    </Link>
                   </>
                 ) : null}
                 {id === comment.user_Id ? (

@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { editComment } from "../../store/comments";
+import { useParams, useHistory } from "react-router-dom";
 
-function EditComment({ comment, setShowModal }) {
+function EditComment() {
   const dispatch = useDispatch();
-  
-     console.log("THIS IS THE COMMENT", comment);
-   
+    const { commentId } = useParams();
+    const comment = useSelector((store) => store.commentReducer.comments?.[commentId]);
   const [content, setContent] = useState(comment.content);
   const [errors, setErrors] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setShowModal(false);
+
     return dispatch(editComment(content, comment.id));
   };
   useEffect(() => {

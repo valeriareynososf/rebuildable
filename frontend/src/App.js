@@ -43,6 +43,9 @@ function App() {
           <Route path="/posts/:postId/edit" exact>
             <UpdateBuild />
           </Route>
+          <Route path="/comments/:commentId" exact>
+            <EditComment />
+          </Route>
           <Route path="/">
             <h2
               style={{
@@ -53,9 +56,9 @@ function App() {
               Page Not Found
             </h2>
           </Route>
-          <Route path="/posts/:postId/comment/:commentId" exact>
+          {/* <Route path="/comments/:commentId" exact>
             <EditComment />
-          </Route>
+          </Route> */}
         </Switch>
       )}
     </>
