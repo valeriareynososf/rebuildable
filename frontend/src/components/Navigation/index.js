@@ -38,6 +38,7 @@ function Navigation({ isLoaded }) {
   }
 
   return (
+    <nav className="navcontainer">
     <ul>
       <li>
         <NavLink exact to="/">
@@ -52,6 +53,7 @@ function Navigation({ isLoaded }) {
         {isLoaded && sessionLinks}
       </li>
     </ul>
+    </nav>
   );
 }
 
