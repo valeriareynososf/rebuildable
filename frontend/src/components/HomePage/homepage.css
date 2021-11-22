@@ -3,7 +3,7 @@
     margin: 0 430px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-left: 140px;
     margin-right: 140px;
 }
@@ -13,7 +13,7 @@
 
 .postsDiv {
     height: 400px;
-    width: 500px;
+    width: 300px;
     object-fit: none;
     object-position: 50% .5;
     padding: 3px;
@@ -23,8 +23,8 @@
 
 .legoImg {
     /* border: 3px solid green; */
-    width: 415px;
-    height: 350px;
+    width: 300px;
+    height: 300px;
 }
 
 .editbtn {
@@ -68,4 +68,6 @@
     background-color: #ECE288;
     font-weight: 300;
     height: 65px;
+     margin-right: 145px;
+  margin-left: 120px;
 }
