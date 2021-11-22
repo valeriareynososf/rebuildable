@@ -64,3 +64,14 @@ cursor: pointer;
 .profileLink:hover {
   background-color: #7EA92F;
 }
+
+.demoBtn {
+  cursor: pointer;
+  background-color: #333333;
+  border: none;
+  color: #FFFFFF;
+}
+
+.demoBtn:hover{
+  color: #7EA92F;
+}
