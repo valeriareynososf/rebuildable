@@ -97,7 +97,7 @@ function SignupFormPage() {
             <li key={idx}>{error}</li>
           ))}
         </ul>
-        <label>Username</label>
+        {/* <label>Username</label> */}
         <input
           type="text"
           value={username}
@@ -106,7 +106,8 @@ function SignupFormPage() {
           placeholder="Username"
           className="registerFormInput"
         />
-        <label>Email</label>
+        {/* <label>Email</label> */}
+        <br />
         <input
           type="text"
           value={email}
@@ -115,7 +116,8 @@ function SignupFormPage() {
           placeholder="Email address"
           className="registerFormInput"
         />
-        <label>Password</label>
+        {/* <label>Password</label> */}
+        <br />
         <input
           type="password"
           value={password}
@@ -124,7 +126,8 @@ function SignupFormPage() {
           placeholder="Password"
           className="registerFormInput"
         />
-        <label>Confirm Password</label>
+        {/* <label>Confirm Password</label> */}
+        <br />
         <input
           type="password"
           value={confirmPassword}

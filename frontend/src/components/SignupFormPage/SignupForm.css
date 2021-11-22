@@ -1,7 +1,7 @@
 .registerContainer {
-  margin-top: 70px;
-    margin-right: 500px;
-  margin-left: 400px;
+  margin-top: 100px;
+    margin-right: 450px;
+  margin-left: 320px;
    display: flex;
   /*flex-direction: column; */
   color: #414141;
@@ -26,20 +26,28 @@
      display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 400px;
+  /* width: 800px; */
   height: 300px;
   flex: 1;
-margin-left: 40px;
+margin-left: 25px;
 }
 
 .registerFormInput {
     border: none;
+    padding: 6px 12px;
+    margin: 0 0 6px;
+    border-radius: 4px;
+}
+
+.registerFormInput:hover {
+  border: 1px solid #414141;
 }
 
 .h1heading {
     /* border: solid;
     border-bottom-color: #8ab933; */
     border-bottom: 3px solid #8ab933;
+    font-weight: 300;
 }
 
 .whyList {
