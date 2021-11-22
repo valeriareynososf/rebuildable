@@ -32,11 +32,11 @@ function Navigation({ isLoaded }) {
       <>
         <LoginFormModal />
         <Link to={`/register`} className="registerBtn">
-          Register
+          REGISTER
         </Link>
         {/* <SignupFormModal /> */}
         <button onClick={demonLogin} className="demoBtn">
-          demo login
+          DEMO LOGIN
         </button>
       </>
     );
