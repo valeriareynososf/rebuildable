@@ -10,25 +10,25 @@ import UpdateBuild from './components/ProfilePage/UpdateMOC';
 import EditComment from './components/HomePage/EditComment';
 import * as sessionActions from './store/session';
 import Navigation from './components/Navigation';
-// import { Modal } from './context/Modal';
+import { Modal } from './context/Modal';
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-  // const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
-      {/* <button onClick={() => setShowModal(true)}>Modal</button>
+    {/* <button onClick={() => setShowModal(true)} className="homepagebtn">Modal</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <h1>Hello I am a Modal</h1>
         </Modal>
       )} */}
+      <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
           <Route path="/" exact>

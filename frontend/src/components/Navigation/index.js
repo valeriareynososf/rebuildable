@@ -38,21 +38,31 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <nav className="navcontainer">
-    <ul>
-      <li>
-        <NavLink exact to="/">
+    <nav>
+      {/* <NavLink exact to="/">
+          Home
+        </NavLink> */}
+      <nav className="navcontainer">
+        {/* <ul> */}
+        {/* <nav> */}
+        <NavLink exact to="/" className="homeLink">
           Home
         </NavLink>
-        <button onClick={() => setShowModal(true)}>Submit a MOC</button>
-        {showModal && (
-          <Modal onClose={() => setShowModal(false)}>
-            <AddMOC setShowModal={setShowModal}/>
-          </Modal>
-        )}
-        {isLoaded && sessionLinks}
-      </li>
-    </ul>
+        <nav className="navlinks">
+          <button onClick={() => setShowModal(true)} className="MOCBtn">
+            <i className="fas fa-rocket fa-lg"> ˅ </i>
+            <div>MOCs</div>
+          </button>
+          {showModal && (
+            <Modal onClose={() => setShowModal(false)}>
+              <AddMOC setShowModal={setShowModal} />
+            </Modal>
+          )}
+          {isLoaded && sessionLinks}
+        </nav>
+        {/* </nav> */}
+        {/* </ul> */}
+      </nav>
     </nav>
   );
 }
