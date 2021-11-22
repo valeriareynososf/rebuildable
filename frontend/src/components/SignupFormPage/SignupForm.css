@@ -51,12 +51,21 @@ margin-left: 40px;
 
 ul {
 list-style: none;
+padding: 8px 0;
 }
 
 .registerRocket {
   color: #414141;
 }
+
+.boldList {
+  font-weight: 600;
+}
 /* .whyParagraph{
   display: flex;
   flex-wrap: wrap;
 } */
+
+.listofWhy {
+  padding: 8px 0;
+}

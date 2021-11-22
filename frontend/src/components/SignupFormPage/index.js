@@ -38,33 +38,40 @@ function SignupFormPage() {
           build and share your LEGO creations.
         </p>
         <ul>
-          <li>
-            <i className="fas fa-puzzle-piece"></i> LEGO Collection Manage your
+          <li className="listofWhy">
+            <i className="fas fa-puzzle-piece fa-lg"></i>{" "}
+            <span className="boldList">LEGO Collection</span> Manage your
             thousands of LEGO sets and loose parts{" "}
           </li>
-          <li>
-            <i className="fas fa-fire"> </i> Ad-Free No more display ads for a
+          <li className="listofWhy">
+            <i className="fas fa-fire fa-lg"> </i>{" "}
+            <span className="boldList">Ad-Free</span> No more display ads for a
             better browsing experience Prizes
           </li>
-          <li>
-            <i className="fas fa-trophy"> </i> Participate in competitions and
-            raffle draws to win LEGO sets!
+          <li className="listofWhy">
+            <i className="fas fa-trophy fa-lg"> </i>{" "}
+            <span className="boldList">Prizes </span>Participate in competitions
+            and raffle draws to win LEGO sets!
           </li>
-          <li>
-            <i className="fas fa-gavel"> </i> Unlimited Builds Use your entire
+          <li className="listofWhy">
+            <i className="fas fa-gavel fa-lg"> </i>{" "}
+            <span className="boldList">Unlimited Builds</span> Use your entire
             LEGO collection in your build searches{" "}
           </li>
-          <li>
-            <i className="fas fa-rocket registerRocket"></i> MOCs Submit and share your custom
+          <li className="listofWhy">
+            <i className="fas fa-rocket registerRocket fa-lg"></i>{" "}
+            <span className="boldList">MOCs</span> Submit and share your custom
             creations with the world
           </li>
-          <li>
-            <i className="far fa-money-bill-alt"></i> Buy Parts Utilise our free
-            tools to help you buy LEGO from thousands of retailers{" "}
+          <li className="listofWhy">
+            <i className="far fa-money-bill-alt fa-lg"></i>{" "}
+            <span className="boldList">Buy Parts</span> Utilise our free tools
+            to help you buy LEGO from thousands of retailers{" "}
           </li>
-          <li>
-            <i className="fas fa-user-plus"> </i> Designers Follow your favorite
-            MOC designers
+          <li className="listofWhy">
+            <i className="fas fa-user-plus fa-lg"> </i>{" "}
+            <span className="boldList">Designers</span> Follow your favorite MOC
+            designers
           </li>
         </ul>
       </div>
