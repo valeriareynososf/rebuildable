@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import "./LoginForm.css";
 
-function LoginForm() {
+function LoginForm({setShowModal}) {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
@@ -19,37 +20,48 @@ function LoginForm() {
       }
     );
   };
-
+ const redirectClick = (e) => {
+   setShowModal(false);
+ };
   return (
-    <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="loginModalContainer">
+      <h3>
+        Login (or{" "}
+        <Link to={`/register`} onClick={redirectClick}>
+          Create Account
+        </Link>
+        )
+      </h3>
+      <form onSubmit={handleSubmit} className="formLogin">
         <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
         </ul>
-        <label>
-          Username or Email
-          <input
-            type="text"
-            value={credential}
-            onChange={(e) => setCredential(e.target.value)}
-            required
-          />
-        </label>
-        <label>
+        {/* <label>
+          Username or Email</label> */}
+        <input
+          type="text"
+          value={credential}
+          onChange={(e) => setCredential(e.target.value)}
+          required
+          placeholder="Username or Email address"
+        />
+
+        {/* <label>
           Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
+          </label> */}
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          placeholder="Password"
+        />
+
         <button type="submit">Log In</button>
       </form>
-    </>
+    </div>
   );
 }
 
