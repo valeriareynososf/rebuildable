@@ -10,6 +10,7 @@ import UpdateBuild from './components/ProfilePage/UpdateMOC';
 import EditComment from './components/HomePage/EditComment';
 import * as sessionActions from './store/session';
 import Navigation from './components/Navigation';
+import SignupFormPage from './components/SignupFormPage/index';
 import { Modal } from './context/Modal';
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
 
   return (
     <>
-    {/* <button onClick={() => setShowModal(true)} className="homepagebtn">Modal</button>
+      {/* <button onClick={() => setShowModal(true)} className="homepagebtn">Modal</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <h1>Hello I am a Modal</h1>
@@ -33,6 +34,9 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <HomePage />
+          </Route>
+          <Route path="/register" exact>
+            <SignupFormPage />
           </Route>
           <Route path="/posts/:postId" exact>
             <PostPage />

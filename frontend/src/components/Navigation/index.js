@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
@@ -31,8 +31,13 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <>
         <LoginFormModal />
-        <SignupFormModal />
-        <button onClick={demonLogin} className="demoBtn">demo login</button>
+        <Link to={`/register`} className="registerBtn">
+          Register
+        </Link>
+        {/* <SignupFormModal /> */}
+        <button onClick={demonLogin} className="demoBtn">
+          demo login
+        </button>
       </>
     );
   }

@@ -1,0 +1,49 @@
+.registerContainer {
+    margin-right: 360px;
+  margin-left: 200px;
+   display: flex;
+  /*flex-direction: column; */
+  color: #414141;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.registerFormBtn {
+    background-color: #7EA92F;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    border: none;
+  color: #FFFFFF;
+}
+
+.registerFormBtn:hover {
+    cursor: pointer;
+    background-color: #8AB933;
+}
+
+.registerForm {
+     display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 400px;
+  height: 300px;
+  flex: 1;
+
+}
+
+.registerFormInput {
+    border: none;
+}
+
+.h1heading {
+    /* border: solid;
+    border-bottom-color: #8ab933; */
+    border-bottom: 3px solid #8ab933;
+}
+
+.whyList {
+       /* display: flex;
+  flex-direction: column; */
+      flex: 3;
+
+}

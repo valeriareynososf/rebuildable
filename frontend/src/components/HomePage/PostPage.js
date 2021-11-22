@@ -43,11 +43,6 @@ window.location.reload();
           <h2 className="profileTitle" key={posts.id}>{posts.title}</h2>
     ) : null}
       <div className="postContainer">
-        {/* {posts !== null ? (
-        <div key={posts.id}>
-          <h2 className="profileTitle">{posts.title}</h2>
-    <div className="postContainer">
-    ) : null} */}
         {posts !== null ? (
           <div key={posts.id}>
             {/* <h2 className="profileTitle">{posts.title}</h2> */}
