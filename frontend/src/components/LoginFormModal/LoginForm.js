@@ -25,9 +25,13 @@ function LoginForm({setShowModal}) {
  };
   return (
     <div className="loginModalContainer">
-      <h3>
+      <h3 className="h3login">
         Login (or{" "}
-        <Link to={`/register`} onClick={redirectClick}>
+        <Link
+          to={`/register`}
+          onClick={redirectClick}
+          className="createAccountLink"
+        >
           Create Account
         </Link>
         )
@@ -38,28 +42,29 @@ function LoginForm({setShowModal}) {
             <li key={idx}>{error}</li>
           ))}
         </ul>
-        {/* <label>
-          Username or Email</label> */}
-        <input
-          type="text"
-          value={credential}
-          onChange={(e) => setCredential(e.target.value)}
-          required
-          placeholder="Username or Email address"
-        />
-
-        {/* <label>
-          Password
-          </label> */}
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          placeholder="Password"
-        />
-
-        <button type="submit">Log In</button>
+        <label className="loginLabelModal">
+          <input
+            type="text"
+            value={credential}
+            onChange={(e) => setCredential(e.target.value)}
+            required
+            placeholder="Username or Email address"
+          />
+          <i className="fas fa-envelope"></i>
+        </label>
+        <label className="loginLabelModal">
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            placeholder="Password"
+          />
+          <i className="fas fa-lock"></i>
+        </label>
+        <button type="submit" className="loginModalBtn">
+          <i className="fas fa-check"></i> Log In
+        </button>
       </form>
     </div>
   );
