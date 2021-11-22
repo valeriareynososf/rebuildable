@@ -1,11 +1,14 @@
 .allPostsContainer {
- padding-top: 15px;
-     margin: 0 430px;
+    padding-top: 15px;
+    margin: 0 430px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     margin-left: 140px;
     margin-right: 140px;
+}
+.postContainer {
+ margin: 0 400px;
 }
 
 .postsDiv {
@@ -52,4 +55,17 @@
 
 .byUserLink:hover {
   color: #5e5c5c;
+}
+
+.PostImage {
+    width: 915px;
+    height: 750px;
+}
+
+.profileTitle {
+    color: #414141;
+    margin-top: 0;
+    background-color: #ECE288;
+    font-weight: 300;
+    height: 65px;
 }

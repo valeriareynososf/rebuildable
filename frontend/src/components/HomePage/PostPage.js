@@ -38,11 +38,11 @@ window.location.reload();
 }
 
   return (
-    <div>
+    <div className="postContainer">
       {posts !== null ? (
         <div key={posts.id}>
-          <h2>{posts.title}</h2>
-          <img src={posts.imgUrl} alt="PostImage" />
+          <h2 className="profileTitle">{posts.title}</h2>
+          <img src={posts.imgUrl} alt="PostImage" className="PostImage" />
           <p>{posts.details}</p>
           <img src={posts.instructions} alt="LegoInstructions" />
         </div>
