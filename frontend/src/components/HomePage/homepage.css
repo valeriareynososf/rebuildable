@@ -3,7 +3,7 @@
      margin: 0 430px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-left: 140px;
     margin-right: 140px;
 }
@@ -19,7 +19,7 @@
 
 
 .legoImg {
-    border: 3px solid green;
+    /* border: 3px solid green; */
     width: 415px;
     height: 350px;
 }
@@ -30,4 +30,26 @@
 
 .commentDiv {
     border: 3px solid green;
+}
+
+.byUserLink {
+    color: #7EA92F;
+     text-decoration: none;
+}
+
+.postTitle{
+    color:#121212;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    /* font-size: 14px; */
+}
+
+.postTitle:hover {
+    color: #5e5c5c;
+    font-weight: 300;
+}
+
+.byUserLink:hover {
+  color: #5e5c5c;
 }

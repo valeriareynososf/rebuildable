@@ -20,10 +20,10 @@ function HomePage() {
         <>
           {Object.values(post).map((single) => (
             <div key={single.id} className="postsDiv">
-              <Link key={single.id} to={`/posts/${single.id}`}>
+              <Link key={single.id} to={`/posts/${single.id}`} className="postTitle">
                 <img src={single.imgUrl} alt="PostImage" className="legoImg" />
                 <br />
-                {single.title}
+                 {single.title}
               </Link>
               <br />
               by{" "}
@@ -32,7 +32,7 @@ function HomePage() {
                   {Object.values(users).map((user) => (
                     <span key={user.id}>
                       {single.userId === user.id ? (
-                        <Link key={user.id} to={`/users/${user.id}`}>
+                        <Link key={user.id} to={`/users/${user.id}`} className="byUserLink">
                           {user.username}
                         </Link>
                       ) : null}

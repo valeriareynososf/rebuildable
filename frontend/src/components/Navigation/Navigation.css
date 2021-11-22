@@ -5,8 +5,6 @@
     background: #333;
     padding: 25px;
     list-style-type: none;
-  /* overflow: visible; */
-  /* display: block; */
 }
 
 .navcontainer {
@@ -16,21 +14,15 @@
   font-family: Arial, Helvetica, sans-serif;
   margin-right: 145px;
   margin-left: 120px;
-   padding: 0 15px;
-    /* display: inline-flex; 
-   justify-content: flex-end;
-    align-items: center; */
-      display: flex;
-    justify-content: space-between;
-    align-items: center;
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-/* .homeLink {
-   display: inline-flex; 
-   justify-content: flex-start;
-} */
+
 .navlinks {
   display: flex;
-     justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .MOCBtn, .profileBtn {
@@ -39,14 +31,6 @@
   color: #FFFFFF;
   font-size: 12px;
   font-family: Arial, Helvetica, sans-serif;
-   /* display: flex; */
-  /* flex-direction: row-reverse; */
-  /* justify-items: flex-end; */
-  /* align-items: flex-end; */
-  /* padding-top: 10px;
-padding-right: 6px;
-padding-bottom: 10px;
-padding-left: 6px; */
 }
 
 .MOCBtn:hover, .profileBtn:hover {
@@ -55,7 +39,6 @@ background-color: #7EA92F;
 }
 
 .fa-rocket, .fa-user {
-  /* background-color: #333333; */
   line-height: 35px;
   background-color: none;
   color: #FFFFFF;
