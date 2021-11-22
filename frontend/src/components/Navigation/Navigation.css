@@ -75,3 +75,16 @@ cursor: pointer;
 .demoBtn:hover{
   color: #7EA92F;
 }
+
+.registerBtn {
+cursor: pointer;
+  background-color: #333333;
+  border: none;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.registerBtn:hover{
+  color: #7EA92F;
+  
+}

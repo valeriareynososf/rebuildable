@@ -32,31 +32,40 @@ function SignupFormPage() {
     <div className="registerContainer">
       <div className="whyList">
         <h2>Why create a Rebuildable account?</h2>
-        <p>
+        <p className="whyParagraph">
           Find out exactly what LEGO parts you need to build your favorite MOCs.
           You will gain access to lots of free member-only features to help you
           build and share your LEGO creations.
         </p>
         <ul>
           <li>
-            LEGO Collection Manage your thousands of LEGO sets and loose parts{" "}
+            <i className="fas fa-puzzle-piece"></i> LEGO Collection Manage your
+            thousands of LEGO sets and loose parts{" "}
           </li>
           <li>
-            Ad-Free No more display ads for a better browsing experience Prizes
+            <i className="fas fa-fire"> </i> Ad-Free No more display ads for a
+            better browsing experience Prizes
           </li>
           <li>
-            Participate in competitions and raffle draws to win LEGO sets!
+            <i className="fas fa-trophy"> </i> Participate in competitions and
+            raffle draws to win LEGO sets!
           </li>
           <li>
-            Unlimited Builds Use your entire LEGO collection in your build
-            searches{" "}
+            <i className="fas fa-gavel"> </i> Unlimited Builds Use your entire
+            LEGO collection in your build searches{" "}
           </li>
-          <li>MOCs Submit and share your custom creations with the world</li>
           <li>
-            Buy Parts Utilise our free tools to help you buy LEGO from thousands
-            of retailers{" "}
+            <i className="fas fa-rocket registerRocket"></i> MOCs Submit and share your custom
+            creations with the world
           </li>
-          <li>Designers Follow your favorite MOC designers</li>
+          <li>
+            <i className="far fa-money-bill-alt"></i> Buy Parts Utilise our free
+            tools to help you buy LEGO from thousands of retailers{" "}
+          </li>
+          <li>
+            <i className="fas fa-user-plus"> </i> Designers Follow your favorite
+            MOC designers
+          </li>
         </ul>
       </div>
       {/* <h1 className="h1heading">

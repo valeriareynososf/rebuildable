@@ -1,9 +1,9 @@
-.loginBtn, .registerBtn {
+.loginBtn{
 cursor: pointer;
   background-color: #333333;
   border: none;
   color: #FFFFFF;
 }
-.loginBtn:hover, .registerBtn:hover{
+.loginBtn:hover{
   color: #7EA92F;
 }

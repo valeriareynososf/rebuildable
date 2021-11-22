@@ -1,6 +1,7 @@
 .registerContainer {
-    margin-right: 360px;
-  margin-left: 200px;
+  margin-top: 70px;
+    margin-right: 500px;
+  margin-left: 400px;
    display: flex;
   /*flex-direction: column; */
   color: #414141;
@@ -28,7 +29,7 @@
   width: 400px;
   height: 300px;
   flex: 1;
-
+margin-left: 40px;
 }
 
 .registerFormInput {
@@ -47,3 +48,15 @@
       flex: 3;
 
 }
+
+ul {
+list-style: none;
+}
+
+.registerRocket {
+  color: #414141;
+}
+/* .whyParagraph{
+  display: flex;
+  flex-wrap: wrap;
+} */
