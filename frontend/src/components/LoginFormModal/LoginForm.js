@@ -25,7 +25,7 @@ function LoginForm({setShowModal}) {
  };
   return (
     <div className="loginModalContainer">
-      <h3 className="h3login">
+      {/* <div className="h3login">
         Login (or{" "}
         <Link
           to={`/register`}
@@ -35,33 +35,50 @@ function LoginForm({setShowModal}) {
           Create Account
         </Link>
         )
-      </h3>
+      </div> */}
       <form onSubmit={handleSubmit} className="formLogin">
+        <div className="h3login">
+          Login (or{" "}
+          <Link
+            to={`/register`}
+            onClick={redirectClick}
+            className="createAccountLink"
+          >
+            Create Account
+          </Link>
+          )
+        </div>
         <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
         </ul>
-        <label className="loginLabelModal">
-          <input
-            type="text"
-            value={credential}
-            onChange={(e) => setCredential(e.target.value)}
-            required
-            placeholder="Username or Email address"
-          />
+        {/* <label className="loginLabelModal"> */}
+        <input
+          type="text"
+          value={credential}
+          onChange={(e) => setCredential(e.target.value)}
+          required
+          placeholder="Username or Email address"
+          className="inputLoginModal"
+        />
+        <span className="loginLabelModal">
           <i className="fas fa-envelope"></i>
-        </label>
-        <label className="loginLabelModal">
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            placeholder="Password"
-          />
+        </span>
+        <br />
+        {/* <label className="loginLabelModal"> */}
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          placeholder="Password"
+          className="inputLoginModal"
+        />
+        <span className="loginLabelModal">
           <i className="fas fa-lock"></i>
-        </label>
+        </span>
+        <br />
         <button type="submit" className="loginModalBtn">
           <i className="fas fa-check"></i> Log In
         </button>

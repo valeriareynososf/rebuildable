@@ -13,10 +13,10 @@ cursor: pointer;
   color: #7EA92F;
 }
 
-.formLogin {
+/* .formLogin {
   display: flex;
   flex-direction: column;
-}
+} */
 
 .createAccountLink {
   text-decoration: none;
@@ -37,12 +37,29 @@ cursor: pointer;
   border:none;
   padding: 6px 12px;
   color:#FFFFFF;
+  width: 100px;
+  border-radius: 5px;
+
 }
 .loginModalBtn:hover {
   cursor: pointer;
+  background-color: #8AB933;
 }
 .loginLabelModal {
   background-color: #EEEEEE;
+ padding: 5px 10px;
+ width: 20px;
+ border: 1px solid #ccc;
+  /* border-radius: 4px; */
+  border-left: none;
 }
 
+.inputLoginModal {
+  padding: 6px 12px;
+  width: 200px;
+  border: 1px solid #ccc;
+  /* border-radius: 4px;
+  border-radius: le; */
+  line-height: 1;
+}
 /* #979797 */
