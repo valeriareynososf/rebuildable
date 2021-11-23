@@ -48,11 +48,11 @@ function LoginForm({setShowModal}) {
           </Link>
           )
         </div>
-        <ul>
+        {/* <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
-        </ul>
+        </ul> */}
         {/* <label className="loginLabelModal"> */}
         <input
           type="text"
@@ -79,7 +79,11 @@ function LoginForm({setShowModal}) {
           <i className="fas fa-lock"></i>
         </span>
         <br />
-        <button type="submit" className="loginModalBtn">
+        <button
+          type="submit"
+          className="loginModalBtn"
+          disabled={errors.length > 0}
+        >
           <i className="fas fa-check"></i> Log In
         </button>
       </form>

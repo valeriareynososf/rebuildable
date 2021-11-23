@@ -1,6 +1,10 @@
 .loginModalContainer {
-width: 500px;
-height: 500px
+width: 300px;
+height: 300px;
+ padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .loginBtn{
@@ -39,6 +43,7 @@ cursor: pointer;
   color:#FFFFFF;
   width: 100px;
   border-radius: 5px;
+  margin-top: 30px;
 
 }
 .loginModalBtn:hover {
@@ -56,10 +61,11 @@ cursor: pointer;
 
 .inputLoginModal {
   padding: 6px 12px;
-  width: 200px;
+  width: 230px;
   border: 1px solid #ccc;
   /* border-radius: 4px;
   border-radius: le; */
   line-height: 1;
+  margin-top: 15px;
 }
 /* #979797 */

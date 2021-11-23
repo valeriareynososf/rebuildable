@@ -137,7 +137,11 @@ function SignupFormPage() {
           className="registerFormInput"
         />
         <br />
-        <button type="submit" className="registerFormBtn">
+        <button
+          type="submit"
+          className="registerFormBtn"
+          disabled={errors.length > 0}
+        >
           <i className="fas fa-check"> </i>Register
         </button>
       </form>
