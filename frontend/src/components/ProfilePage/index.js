@@ -37,14 +37,17 @@ if (deletepost) {
 }
 }
   return (
-    <div>
-      <h2>Profile</h2>
+    <div className="profileContainer">
+      <div className="profileDivTitle">
+        <h2 className="profileHeadline">PROFILE</h2>
+      </div>
       <img src={user.imgUrl} alt="UserImage" className="profileImg" />
       <br />
-      {user.username}
       {user.id === id && user.id !== 1 ? (
         <>
-          <button onClick={() => setShowModal(true)}>Edit Porfile </button>
+          <button onClick={() => setShowModal(true)} className="editProBtn">
+            <i className="fas fa-edit"></i> Edit Profile{" "}
+          </button>
           {showModal && (
             <Modal onClose={() => setShowModal(false)}>
               <EditProfile setShowModal={setShowModal} user={user} />
@@ -52,6 +55,9 @@ if (deletepost) {
           )}
         </>
       ) : null}
+      <br />
+      <span className="profileUsername">{user.username}</span>
+      <br />
       <div>
         {posts !== null ? (
           <>

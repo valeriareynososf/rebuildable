@@ -7,3 +7,42 @@
     width: 300px;
     height: 300px;
 }
+
+.profileContainer {
+ margin-right: 145px;
+  margin-left: 120px;
+}
+
+/* .profileDivTitle {
+ padding: 10px 15px;
+} */
+
+.profileHeadline {
+    margin-top: 0;
+    background-color: #ECE288;
+    height: 65px;
+    font-weight: 300;
+    color: #414141;
+    line-height: 1.5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 26px;
+    padding: 8px 15px;
+}
+
+.editProBtn {
+    border: none;
+    color: #7EA930;
+    margin-bottom: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.editProBtn:hover {
+    cursor: pointer;
+    color: #414141;
+}
+
+.profileUsername {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #414141;
+}
