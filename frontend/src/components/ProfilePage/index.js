@@ -17,6 +17,7 @@ const user = useSelector((state) => state.singleReducer.main);
 const posts = useSelector((store) => store.postReducer?.posts);
 const id = useSelector((state) => state.session.user?.id);
 const [showModal, setShowModal] = useState(false);
+    const [showDelete, setShowDelete] = useState("");
 //   const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
