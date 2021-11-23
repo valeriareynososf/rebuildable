@@ -16,12 +16,15 @@ const [content, setContent] = useState("");
 const comments = useSelector((store) => store.commentReducer.comments);
 const id = useSelector((state) => state.session.user?.id);
 const [showModal, setShowModal] = useState(false);
-// const [errors, setErrors] = useState([]);
+const [errors, setErrors] = useState([]);
 
 useEffect(() => {
   dispatch(singlePost(+postId));
   dispatch(postComments(+postId));
-}, [dispatch, postId]);
+  const errors = [];
+  if (!content) errors.push("Title field is required");
+  setErrors(errors);
+}, [dispatch, postId, content]);
 
 const handleSubmit = (e) => {
   e.preventDefault();
@@ -45,7 +48,6 @@ window.location.reload();
       <div className="postContainer">
         {posts !== null ? (
           <div key={posts.id}>
-            {/* <h2 className="profileTitle">{posts.title}</h2> */}
             <img src={posts.imgUrl} alt="PostImage" className="PostImage" />
             <p>{posts.details}</p>
             <img src={posts.instructions} alt="LegoInstructions" />
@@ -62,7 +64,7 @@ window.location.reload();
             <br />
             <button
               type="submit"
-              // disabled={errors.length > 0}
+              disabled={errors.length > 0}
             >
               Add Comment
             </button>
