@@ -98,3 +98,41 @@ cursor: pointer;
  width: auto;
 height: 74px;
 }
+
+.addMocForm {
+  width: 300px;
+height: 300px;
+ padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.submitMocBtn {
+  background-color: #7EA92F;
+  border:none;
+  padding: 6px 12px;
+  color:#FFFFFF;
+  width: 100px;
+  border-radius: 5px;
+  margin-top: 30px;
+}
+
+.submitMocBtn:hover {
+cursor: pointer;
+background-color: #8AB933;
+}
+
+.addMocInput {
+  padding: 6px 12px;
+  width: 230px;
+  border: 1px solid #ccc;
+  line-height: 1;
+  margin-top: 15px;
+}
+
+.submitMocFormTitle {
+color: #434343;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 300;
+}
