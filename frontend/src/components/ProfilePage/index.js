@@ -65,7 +65,7 @@ if (deletepost) {
           {posts !== null ? (
             <>
               {Object.values(posts).map((post) => (
-                <div key={post.id}>
+                <div key={post.id} className="insidePostdiv">
                   {post.userId === user.id ? (
                     <>
                       <img
@@ -84,10 +84,10 @@ if (deletepost) {
                       <br/>
                       {id === post.userId ? (
                         <>
-                          <Link to={`/posts/${post.id}/edit`} key={post.id}>
+                          <Link to={`/posts/${post.id}/edit`} key={post.id} className="updateMocLink">
                             Update MOC
                           </Link>
-                          <button onClick={() => deletePostf(post.id)}>
+                          <button onClick={() => deletePostf(post.id)} className="deletePostBtn">
                             delete
                           </button>
                         </>

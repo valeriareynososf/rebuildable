@@ -53,15 +53,47 @@
 .postTitleLink {
     text-decoration: none;
     color: #2b2a2a;
+    /* margin-bottom: 200px;
+    border: 3px solid red; */
 }
+
 .postTitleLink:hover{
     cursor: pointer;
     color: #7EA930;
 }
 .profilPostDiv {
-    flex: 1;
+    flex: 3;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* margin-bottom: 50px; */
 }
 
 .ProfileInfo {
-    flex: 2;
+    flex: 1;
+}
+
+.insidePostdiv {
+    margin-bottom: 25px;
+}
+.updateMocLink{
+    padding: 15px;
+    text-decoration: none;
+    color: #2b2a2a;
+}
+
+.updateMocLink:hover{
+   color: #7EA930;
+}
+
+.deletePostBtn {
+    border: none;
+    background-color: red;
+    color: #fffFFF;
+    border-radius: 8px;
+    padding: 5px;
+}
+.deletePostBtn:hover {
+    cursor: pointer;
+    background-color: #fffFFF;
+    color: red;
 }
