@@ -37,58 +37,68 @@ if (deletepost) {
 }
 }
   return (
-    <div className="profileContainer">
+    <div>
       <div className="profileDivTitle">
         <h2 className="profileHeadline">PROFILE</h2>
       </div>
-      <img src={user.imgUrl} alt="UserImage" className="profileImg" />
-      <br />
-      {user.id === id && user.id !== 1 ? (
-        <>
-          <button onClick={() => setShowModal(true)} className="editProBtn">
-            <i className="fas fa-edit"></i> Edit Profile{" "}
-          </button>
-          {showModal && (
-            <Modal onClose={() => setShowModal(false)}>
-              <EditProfile setShowModal={setShowModal} user={user} />
-            </Modal>
-          )}
-        </>
-      ) : null}
-      <br />
-      <span className="profileUsername">{user.username}</span>
-      <br />
-      <div>
-        {posts !== null ? (
-          <>
-            {Object.values(posts).map((post) => (
-              <div key={post.id}>
-                {post.userId === user.id ? (
-                  <>
-                    <img
-                      src={post.imgUrl}
-                      alt="PostImage"
-                      className="postImg"
-                    />
-                    <Link key={post.id} to={`/posts/${post.id}`}>
-                      {post.title}
-                    </Link>
-                    {id === post.userId ? (
-                      <>
-                        <Link to={`/posts/${post.id}/edit`} key={post.id}>
-                          Update MOC
-                        </Link>
-                        <button onClick={() => deletePostf(post.id)}>
-                          delete
-                        </button>
-                      </>
-                    ) : null}
-                  </>
-                ) : null}
-              </div>
-            ))}
-          </>
-        ) : null}
+      <div className="profileContainer">
+        <div className="ProfileInfo">
+          <img src={user.imgUrl} alt="UserImage" className="profileImg" />
+          <br />
+          {user.id === id && user.id !== 1 ? (
+            <>
+              <button onClick={() => setShowModal(true)} className="editProBtn">
+                <i className="fas fa-edit"></i> Edit Profile{" "}
+              </button>
+              {showModal && (
+                <Modal onClose={() => setShowModal(false)}>
+                  <EditProfile setShowModal={setShowModal} user={user} />
+                </Modal>
+              )}
+            </>
+          ) : null}
+          <br />
+          <span className="profileUsername">{user.username}</span>
+          <br />
+        </div>
+        <div className="profilPostDiv">
+          {posts !== null ? (
+            <>
+              {Object.values(posts).map((post) => (
+                <div key={post.id}>
+                  {post.userId === user.id ? (
+                    <>
+                      <img
+                        src={post.imgUrl}
+                        alt="PostImage"
+                        className="postImg"
+                      />
+                      <br />
+                      <Link
+                        key={post.id}
+                        to={`/posts/${post.id}`}
+                        className="postTitleLink"
+                      >
+                        {post.title}
+                      </Link>
+                      <br/>
+                      {id === post.userId ? (
+                        <>
+                          <Link to={`/posts/${post.id}/edit`} key={post.id}>
+                            Update MOC
+                          </Link>
+                          <button onClick={() => deletePostf(post.id)}>
+                            delete
+                          </button>
+                        </>
+                      ) : null}
+                    </>
+                  ) : null}
+                </div>
+              ))}
+            </>
+          ) : null}
+        </div>
       </div>
     </div>
   );
