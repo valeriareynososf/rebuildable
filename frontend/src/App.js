@@ -26,7 +26,7 @@ function App() {
       {/* <button onClick={() => setShowModal(true)} className="homepagebtn">Modal</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <h1>Hello I am a Modal</h1>
+          <h1>About??</h1>
         </Modal>
       )} */}
       <Navigation isLoaded={isLoaded} />
@@ -60,9 +60,6 @@ function App() {
               Page Not Found
             </h2>
           </Route>
-          {/* <Route path="/comments/:commentId" exact>
-            <EditComment />
-          </Route> */}
         </Switch>
       )}
     </>

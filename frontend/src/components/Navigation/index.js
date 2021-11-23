@@ -8,6 +8,7 @@ import AddMOC from "../Navigation/AddMOC"
 import { Modal } from "../../context/Modal";
 import * as sessionActions from "../../store/session";
 import "./Navigation.css";
+import Rebuildable from "../../images/Rebuildable.png";
 
 function Navigation({ isLoaded }) {
   const dispatch = useDispatch();
@@ -51,7 +52,7 @@ function Navigation({ isLoaded }) {
         {/* <ul> */}
         {/* <nav> */}
         <NavLink exact to="/" className="homeLink">
-          Home
+          <img src={Rebuildable} alt="lego" className="homebLogo" />
         </NavLink>
         <nav className="navlinks">
           <button onClick={() => setShowModal(true)} className="MOCBtn">
