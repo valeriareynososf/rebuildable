@@ -136,6 +136,7 @@ height: 300px;
     padding: 5px;
     border-radius: 5px;
     color: #fffFFF;
+    width: 100px;
 }
 
 .updateProfileBtn:hover {
@@ -157,6 +158,7 @@ height: 300px;
 .editProTitle {
     color: #28A4C9;
     margin-bottom: 15px;
+    font-size: 25px;
 
 }
 
