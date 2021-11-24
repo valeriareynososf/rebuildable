@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory, Link } from "react-router-dom";
-import { singlePost } from "../../store/posts";
+import { singlePost, deletePost} from "../../store/posts";
+import { getUser } from "../../store/users";
 import { Modal } from "../../context/Modal";
 import EditComment from "./EditComment";
 import { postComments, addComment, editComment, deleteComment } from "../../store/comments";
@@ -14,15 +15,18 @@ const history = useHistory();
 const posts = useSelector((store) => store.postReducer?.posts);
 const [content, setContent] = useState("");
 const comments = useSelector((store) => store.commentReducer.comments);
+const user = useSelector((store) => store.userReducer?.users);
 const id = useSelector((state) => state.session.user?.id);
-const [showModal, setShowModal] = useState(false);
+// const [showModal, setShowModal] = useState(false);
 const [errors, setErrors] = useState([]);
 const [showDetails, setShowDetails] = useState("");
 const [showInstructions, setShowInstructions] = useState("");
 const [showComments, setShowComments] = useState("");
 const [showAddComment, setShowAddComment] = useState("");
+console.log("WHAT", user)
 
 useEffect(() => {
+  dispatch(getUser());
   dispatch(singlePost(+postId));
   dispatch(postComments(+postId));
   const errors = [];
@@ -71,18 +75,43 @@ if (deleted) {
 window.location.reload();
 }
 }
-
+function deletePostf(id) {
+  const deletepost = dispatch(deletePost(id));
+  if (deletepost) {
+    history.push(`/`);
+    window.location.reload();
+  }
+}
   return (
     <div>
       {posts !== null ? (
-        <h2 className="profileTitle" key={posts.id}>
-          {posts.title}
+        <h2 className="profileTitle" key={posts?.id}>
+          {posts?.title}
         </h2>
       ) : null}
       <div className="postContainer">
         {posts !== null ? (
           <div key={posts.id}>
+            {id === posts?.userId ? (
+              <>
+                <Link
+                  to={`/posts/${posts.id}/edit`}
+                  key={posts.id}
+                  className="updateMocLink"
+                >
+                  Update MOC
+                </Link>
+                <button
+                  onClick={() => deletePostf(posts.id)}
+                  className="deletePostBtn"
+                >
+                  delete
+                </button>
+              </>
+            ) : null}
+            <br />
             <img src={posts.imgUrl} alt="PostImage" className="PostImage" />
+            <br />
             <br />
             <button onClick={hideInstructions} className="postTabsBtn">
               Details
@@ -132,20 +161,6 @@ window.location.reload();
             </form>
           </div>
         )}
-        {/* <div>
-          <form onSubmit={handleSubmit}>
-            <br />
-            <textarea
-              value={content}
-              required
-              onChange={(e) => setContent(e.target.value)}
-            />
-            <br />
-            <button type="submit" disabled={errors.length > 0}>
-              Add Comment
-            </button>
-          </form>
-        </div> */}
         <div>
           {comments !== null ? (
             <div>
@@ -154,6 +169,21 @@ window.location.reload();
                   {showComments && (
                     <div className="addModal">
                       <div className="addChannelFormContainer">
+                        {user !== null ? (
+                          <div>
+                            <img
+                              src={user[+comment.user_Id].imgUrl}
+                              alt="userImg"
+                              className="userImgPost"
+                            />
+                            <span>
+                              <Link to={`/users/${comment.user_Id}`}>
+                                {" "}
+                                {user[+comment.user_Id].username}
+                              </Link>
+                            </span>
+                          </div>
+                        ) : null}{" "}
                         <div>{comment.content}</div>
                       </div>
                       {id === comment.user_Id ? (
@@ -170,26 +200,6 @@ window.location.reload();
                       ) : null}
                     </div>
                   )}
-                  {/* <button onClick={() => setShowComments(true)}>Comments</button>
-                  // {showComments && (
-                  //   <div className="addModal">
-                  //     <div className="addChannelFormContainer">
-                  //       <div>{comment.content}</div>
-                  //     </div>
-                  //   </div>
-                  // )} */}
-                  {/* {id === comment.user_Id ? (
-                    <>
-                      <Link key={comment.id} to={`/comments/${comment.id}`}>
-                        Edit Comment
-                      </Link>
-                    </>
-                  ) : null}
-                  {id === comment.user_Id ? (
-                    <button onClick={() => deleteBtn(comment.id)}>
-                      delete
-                    </button>
-                  ) : null} */}
                 </div>
               ))}
               <br />
