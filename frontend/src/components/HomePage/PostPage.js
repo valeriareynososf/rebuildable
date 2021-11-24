@@ -127,7 +127,7 @@ function deletePostf(id) {
             {showDetails && (
               <div>
                 <div>
-                  <p>{posts.details}</p>
+                  <p className="pDetails">{posts.details}</p>
                 </div>
               </div>
             )}
@@ -154,7 +154,7 @@ function deletePostf(id) {
                 onChange={(e) => setContent(e.target.value)}
               />
               <br />
-              <button type="submit" disabled={errors.length > 0}>
+              <button type="submit" disabled={errors.length > 0} className="AddCPost">
                 Add Comment
               </button>
             </form>
@@ -167,7 +167,7 @@ function deletePostf(id) {
                 <div key={comment.id}>
                   {showComments && (
                     <div className="commentDiv">
-                      <div>
+                      <div className="userInfoC">
                         {user !== null ? (
                           <div>
                             <img
@@ -187,9 +187,8 @@ function deletePostf(id) {
                             </span>
                           </div>
                         ) : null}{" "}
-                       
                       </div>
-                      <div> 
+                      <div className="editDeleteBtns"> 
                         {comment.content}{' '}
                       {id === comment.user_Id ? (
                         <>
