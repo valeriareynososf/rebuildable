@@ -7,7 +7,7 @@
     margin-left: 140px;
     margin-right: 140px;
 }
-.postContainer, .editCommentContainer {
+.postContainer{
  margin: 0 400px;
  display: flex;
  /* flex-wrap: wrap; */
@@ -94,7 +94,7 @@
     color: #7EA92F;
 }
 
-.linkUserNameComment:hover {
+.linkUserNameComment:hover, .editCLink:hover {
     color: #414141;
     cursor: pointer;
 }
@@ -104,4 +104,58 @@
 margin-left: 0;
 display: flex;
     flex-direction: row;
+}
+
+.editCLink {
+text-decoration: none;
+color: rgb(40, 164, 201);
+}
+
+.deleteCBtn {
+    border: none;
+    color: red;
+}
+.deleteCBtn:hover {
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.editCommentContainer {
+ margin-left: 650px;
+ margin-right: 650px;
+ display: flex;
+ flex-direction: column;
+}
+
+.EditCForm {
+    margin-top: 100px;
+}
+.editCTitle {
+    color: #7EA92F;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.editCInput{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 6px 12px;
+  width: 230px;
+  border: 1px solid #ccc;
+  line-height: 1;
+}
+
+.updateCBtn {
+background-color: #7EA92F;
+color: #FFFFFF;
+border: none;
+border-radius: 4px;
+padding: 7px;
+}
+
+.updateCBtn:hover {
+    cursor: pointer;
+    background-color: #FFFFFF;
+    color: #7EA92F;
 }

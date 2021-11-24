@@ -29,17 +29,18 @@ function EditComment() {
 
   return (
     <div className="editCommentContainer">
-      <form onSubmit={handleSubmit}>
-        <label>Edit your Comment</label>
+      <form onSubmit={handleSubmit} className="EditCForm">
+        <label className="editCTitle">Edit your Comment</label>
         <br />
         <input
           type="text"
           value={content}
           required
           onChange={(e) => setContent(e.target.value)}
+          className="editCInput"
         />
         <br />
-        <button type="submit" disabled={errors.length > 0}>
+        <button type="submit" disabled={errors.length > 0} className="updateCBtn">
           Update Comment
         </button>
       </form>

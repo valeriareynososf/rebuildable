@@ -190,16 +190,16 @@ function deletePostf(id) {
                        
                       </div>
                       <div> 
-                        {comment.content}
+                        {comment.content}{' '}
                       {id === comment.user_Id ? (
                         <>
-                          <Link key={comment.id} to={`/comments/${comment.id}`}>
+                          <Link key={comment.id} to={`/comments/${comment.id}`} className="editCLink">
                             Edit Comment
                           </Link>
                         </>
                       ) : null}
                       {id === comment.user_Id ? (
-                        <button onClick={() => deleteBtn(comment.id)}>
+                        <button onClick={() => deleteBtn(comment.id)} className="deleteCBtn">
                           delete
                         </button>
                       ) : null}
