@@ -2,19 +2,20 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editComment } from "../../store/comments";
 import { useParams, useHistory } from "react-router-dom";
+import "./homepage.css";
 
 function EditComment() {
   const dispatch = useDispatch();
   const history = useHistory();
     const { commentId } = useParams();
     const comment = useSelector((store) => store.commentReducer.comments?.[commentId]);
-  const [content, setContent] = useState(comment.content);
+  const [content, setContent] = useState(comment?.content);
   const [errors, setErrors] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const editC = dispatch(editComment(content, comment.id));
+    const editC = dispatch(editComment(content, comment?.id));
     if (editC) {
       history.push(`/`);
     }
@@ -27,7 +28,7 @@ function EditComment() {
 
 
   return (
-    <>
+    <div className="editCommentContainer">
       <form onSubmit={handleSubmit}>
         <label>Edit your Comment</label>
         <br />
@@ -42,7 +43,7 @@ function EditComment() {
           Update Comment
         </button>
       </form>
-    </>
+    </div>
   );
 }
 

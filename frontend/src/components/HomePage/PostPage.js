@@ -171,7 +171,7 @@ function deletePostf(id) {
                         {user !== null ? (
                           <div>
                             <img
-                              src={user[+comment.user_Id].imgUrl}
+                              src={user[+comment.user_Id]?.imgUrl}
                               alt="userImg"
                               className="userImgPost"
                             />
@@ -182,7 +182,7 @@ function deletePostf(id) {
                                 className="linkUserNameComment"
                               >
                                 {" "}
-                                {user[+comment.user_Id].username}
+                                {user[+comment.user_Id]?.username}
                               </Link>
                             </span>
                           </div>
