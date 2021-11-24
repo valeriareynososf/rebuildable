@@ -84,13 +84,28 @@ function deletePostf(id) {
   return (
     <div>
       {posts !== null ? (
-        <h2 className="profileTitle" key={posts?.id}>
-          {posts?.title}
-        </h2>
+        <>
+          <h2 className="profileTitle" key={posts?.id}>
+            {posts?.title} by{" "}
+            {user !== null ? (
+              <>
+                {Object.values(user).map((poster) => (
+                  <span key={poster.id}>
+                    {posts?.userId === poster?.id ? (
+                      <Link key={poster?.id} to={`/users/${poster?.id}`} className="titleUsername">
+                        {poster?.username}
+                      </Link>
+                    ) : null}
+                  </span>
+                ))}
+              </>
+            ) : null}
+          </h2>
+        </>
       ) : null}
       <div className="postContainer">
         {posts !== null ? (
-          <div key={posts.id}>
+          <div key={posts.id} className="postInformation">
             {id === posts?.userId ? (
               <>
                 <Link
@@ -154,7 +169,11 @@ function deletePostf(id) {
                 onChange={(e) => setContent(e.target.value)}
               />
               <br />
-              <button type="submit" disabled={errors.length > 0} className="AddCPost">
+              <button
+                type="submit"
+                disabled={errors.length > 0}
+                className="AddCPost"
+              >
                 Add Comment
               </button>
             </form>
@@ -188,20 +207,27 @@ function deletePostf(id) {
                           </div>
                         ) : null}{" "}
                       </div>
-                      <div className="editDeleteBtns"> 
-                        {comment.content}{' '}
-                      {id === comment.user_Id ? (
-                        <>
-                          <Link key={comment.id} to={`/comments/${comment.id}`} className="editCLink">
-                            Edit Comment
-                          </Link>
-                        </>
-                      ) : null}
-                      {id === comment.user_Id ? (
-                        <button onClick={() => deleteBtn(comment.id)} className="deleteCBtn">
-                          delete
-                        </button>
-                      ) : null}
+                      <div className="editDeleteBtns">
+                        {comment.content}{" "}
+                        {id === comment.user_Id ? (
+                          <>
+                            <Link
+                              key={comment.id}
+                              to={`/comments/${comment.id}`}
+                              className="editCLink"
+                            >
+                              Edit Comment
+                            </Link>
+                          </>
+                        ) : null}
+                        {id === comment.user_Id ? (
+                          <button
+                            onClick={() => deleteBtn(comment.id)}
+                            className="deleteCBtn"
+                          >
+                            delete
+                          </button>
+                        ) : null}
                       </div>
                     </div>
                   )}
@@ -212,6 +238,24 @@ function deletePostf(id) {
           ) : null}
         </div>
       </div>
+
+      {/* <div className="profilPosterInfo">
+        {posts !== null ? <div>{posts?.title}</div> : null}
+        by{" "}
+        {user !== null ? (
+          <>
+            {Object.values(user).map((poster) => (
+              <span key={poster.id}>
+                {posts?.userId === poster?.id ? (
+                  <Link key={poster?.id} to={`/users/${poster?.id}`}>
+                    {poster?.username}
+                  </Link>
+                ) : null}
+              </span>
+            ))}
+          </>
+        ) : null}
+      </div> */}
     </div>
   );
 }

@@ -61,7 +61,7 @@
     cursor: pointer;
     color: #7EA930;
 }
-.profilPostDiv {
+.profilePostDiv {
     flex: 3;
     flex-direction: column;
     flex-wrap: wrap;

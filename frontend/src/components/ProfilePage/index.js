@@ -62,7 +62,7 @@ if (deletepost) {
           <span className="profileUsername">{user.username}</span>
           <br />
         </div>
-        <div className="profilPostDiv">
+        <div className="profilePostDiv">
           {posts !== null ? (
             <>
               {Object.values(posts).map((post) => (

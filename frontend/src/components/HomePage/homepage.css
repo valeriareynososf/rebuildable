@@ -179,3 +179,23 @@ font-family: Arial, Helvetica, sans-serif;
     width: auto;
     height: auto;
 }
+
+.profilPosterInfo {
+flex: 1;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.postInformation {
+    flex: 3;
+}
+
+.titleUsername{
+    color: #414141;
+    text-decoration: none;
+}
+
+.titleUsername:hover {
+     color: rgb(40, 164, 201);
+     cursor: pointer;
+}
