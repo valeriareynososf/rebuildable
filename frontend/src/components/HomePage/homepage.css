@@ -12,7 +12,7 @@
  display: flex;
  /* flex-wrap: wrap; */
  flex-direction: column;
-  border: 3px solid green;
+  /* border: 3px solid green; */
 }
 
 .postsDiv {
@@ -35,9 +35,9 @@
     cursor: pointer;
 }
 
-.commentDiv {
+/* .commentDiv {
     border: 3px solid green;
-}
+} */
 
 .byUserLink {
     color: #7EA92F;
@@ -61,9 +61,9 @@
   color: #5e5c5c;
 }
 
-.PostImage {
-    width: 715px;
-    height: 550px;
+.PostImage, .instructionsImage {
+    width: 650px;
+    height: 485px;
 }
 
 .profileTitle {

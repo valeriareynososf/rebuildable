@@ -5,6 +5,7 @@ import { useParams, useHistory } from "react-router-dom";
 
 function EditComment() {
   const dispatch = useDispatch();
+  const history = useHistory();
     const { commentId } = useParams();
     const comment = useSelector((store) => store.commentReducer.comments?.[commentId]);
   const [content, setContent] = useState(comment.content);
@@ -13,7 +14,10 @@ function EditComment() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    return dispatch(editComment(content, comment.id));
+    const editC = dispatch(editComment(content, comment.id));
+    if (editC) {
+      history.push(`/`);
+    }
   };
   useEffect(() => {
     const errors = [];

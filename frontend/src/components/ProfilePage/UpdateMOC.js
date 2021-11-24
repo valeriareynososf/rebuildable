@@ -2,16 +2,17 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { editPost } from "../../store/posts";
+import "./profile.css";
 
 function UpdateBuild() {
   const dispatch = useDispatch();
    const { postId } = useParams();
     const history = useHistory();
     const post = useSelector((store) => store.postReducer?.posts?.[postId]);
-  const [title, setTitle] = useState(post.title);
-  const [imgUrl, setImgUrl] = useState(post.imgUrl);
-  const [instructions, setInstructions] = useState(post.instructions);
-  const [details, setDetails] = useState(post.details);
+  const [title, setTitle] = useState(post?.title);
+  const [imgUrl, setImgUrl] = useState(post?.imgUrl);
+  const [instructions, setInstructions] = useState(post?.instructions);
+  const [details, setDetails] = useState(post?.details);
   // const [errors, setErrors] = useState([]);
   //const id = useSelector((state) => state.session.user?.id);
 
@@ -22,14 +23,15 @@ function UpdateBuild() {
       history.push(`/posts/${postId}`);
     }
   };
-// console.log("POST ID?!", postId);
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="updateMocForm">
       <label>Title</label>
       <input
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        className="inputForm"
       />
       <br />
       <label>Image</label>
@@ -38,6 +40,7 @@ function UpdateBuild() {
         placeholder="image url"
         value={imgUrl}
         onChange={(e) => setImgUrl(e.target.value)}
+        className="inputForm"
       />
       <br />
       <label>Details</label>
@@ -45,6 +48,7 @@ function UpdateBuild() {
         type="text"
         value={details}
         onChange={(e) => setDetails(e.target.value)}
+        className="inputForm"
       />
       <br />
       <label>Instructions</label>
@@ -53,9 +57,12 @@ function UpdateBuild() {
         value={instructions}
         placeholder="image url"
         onChange={(e) => setInstructions(e.target.value)}
+        className="inputForm"
       />
       <br />
-      <button type="submit">Submit MOC</button>
+      <button type="submit" className="submitMocBtn">
+        Update MOC
+      </button>
     </form>
   );
 }

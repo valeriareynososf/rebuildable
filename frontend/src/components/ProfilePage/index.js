@@ -31,7 +31,7 @@ const [showModal, setShowModal] = useState(false);
     if (!posts){
         return null
     }
-function deletePostf(){
+function deletePostf(id){
 const deletepost = dispatch(deletePost(id));
 if (deletepost) {
   window.location.reload();
