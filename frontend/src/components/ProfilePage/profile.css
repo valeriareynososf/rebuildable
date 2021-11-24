@@ -120,6 +120,46 @@
   line-height: 1;
   margin-top: 5px;
 }
-/* .submitMocBtn:hover{
+
+.editProfileDiv {
+    width: 300px;
+height: 300px;
+ padding-top: 30px;
+  padding-bottom: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.updateProfileBtn {
+    background-color: #7EA930;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    color: #fffFFF;
+}
+
+.updateProfileBtn:hover {
     cursor: pointer;
+    background-color: #fffFFF;
+    color: #7EA930;
+}
+
+.editProfileForm {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+    margin-top: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #2b2a2a;
+}
+
+.editProTitle {
+    color: #28A4C9;
+    margin-bottom: 15px;
+
+}
+
+/* .editLabelPro {
+    margin-top: 30px;
 } */

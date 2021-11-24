@@ -75,3 +75,11 @@
      margin-right: 145px;
   margin-left: 120px;
 }
+
+.postTabsBtn {
+    border-bottom: none;
+}
+
+.postTabsBtn:hover {
+    cursor: pointer;
+}

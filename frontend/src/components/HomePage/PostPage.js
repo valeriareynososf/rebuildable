@@ -83,14 +83,19 @@ window.location.reload();
         {posts !== null ? (
           <div key={posts.id}>
             <img src={posts.imgUrl} alt="PostImage" className="PostImage" />
-            <button onClick={hideInstructions}>DETAILS</button>
-            {/* <button onClick={() => setShowDetails(true)}>DETAILS</button> */}
-            <button onClick={hideDetails}>
-              {/* <button onClick={(() => setShowInstructions(true))}> */}
+            <br />
+            <button onClick={hideInstructions} className="postTabsBtn">
+              Details
+            </button>
+            <button onClick={hideDetails} className="postTabsBtn">
               Instructions
             </button>
-            <button onClick={showTheComments}>Comments</button>
-            <button onClick={showAddComments}>Add Comment</button>
+            <button onClick={showTheComments} className="postTabsBtn">
+              Comments
+            </button>
+            <button onClick={showAddComments} className="postTabsBtn">
+              Add Comment
+            </button>
             {showDetails && (
               <div className="addModal">
                 <div className="addChannelFormContainer">
@@ -109,7 +114,6 @@ window.location.reload();
                 </div>
               </div>
             )}
-            {/* <img src={posts.instructions} alt="LegoInstructions" /> */}
           </div>
         ) : null}
         {showAddComment && (
@@ -147,7 +151,6 @@ window.location.reload();
             <div>
               {Object.values(comments).map((comment) => (
                 <div key={comment.id} className="commentDiv">
-                  {/* {comment.content} */}
                   {showComments && (
                     <div className="addModal">
                       <div className="addChannelFormContainer">
