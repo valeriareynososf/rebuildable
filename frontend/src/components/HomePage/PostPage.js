@@ -23,7 +23,6 @@ const [showDetails, setShowDetails] = useState("");
 const [showInstructions, setShowInstructions] = useState("");
 const [showComments, setShowComments] = useState("");
 const [showAddComment, setShowAddComment] = useState("");
-console.log("WHAT", user)
 
 useEffect(() => {
   dispatch(getUser());
@@ -126,15 +125,15 @@ function deletePostf(id) {
               Add Comment
             </button>
             {showDetails && (
-              <div className="addModal">
-                <div className="addChannelFormContainer">
+              <div>
+                <div>
                   <p>{posts.details}</p>
                 </div>
               </div>
             )}
             {showInstructions && (
-              <div className="addModal">
-                <div className="addChannelFormContainer">
+              <div>
+                <div>
                   <img
                     src={posts.instructions}
                     alt="LegoInstructions"
@@ -165,10 +164,10 @@ function deletePostf(id) {
           {comments !== null ? (
             <div>
               {Object.values(comments).map((comment) => (
-                <div key={comment.id} className="commentDiv">
+                <div key={comment.id}>
                   {showComments && (
-                    <div className="addModal">
-                      <div className="addChannelFormContainer">
+                    <div className="commentDiv">
+                      <div>
                         {user !== null ? (
                           <div>
                             <img
@@ -176,16 +175,22 @@ function deletePostf(id) {
                               alt="userImg"
                               className="userImgPost"
                             />
+                            <br />
                             <span>
-                              <Link to={`/users/${comment.user_Id}`}>
+                              <Link
+                                to={`/users/${comment.user_Id}`}
+                                className="linkUserNameComment"
+                              >
                                 {" "}
                                 {user[+comment.user_Id].username}
                               </Link>
                             </span>
                           </div>
                         ) : null}{" "}
-                        <div>{comment.content}</div>
+                       
                       </div>
+                      <div> 
+                        {comment.content}
                       {id === comment.user_Id ? (
                         <>
                           <Link key={comment.id} to={`/comments/${comment.id}`}>
@@ -198,6 +203,7 @@ function deletePostf(id) {
                           delete
                         </button>
                       ) : null}
+                      </div>
                     </div>
                   )}
                 </div>
