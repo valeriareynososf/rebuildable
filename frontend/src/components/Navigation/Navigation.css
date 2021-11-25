@@ -167,6 +167,24 @@ font-size: 30px;
 }
 
 .aboutParagraph {
+  margin-top: 30px;
   font-family: Arial, Helvetica, sans-serif;
   color:#676464;
+}
+
+.mathSigns {
+ color:#676464;
+ font-size: 80px;
+ padding: 40px;
+}
+
+.picturesAbout {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+}
+.legoCap{
+  display: flex;
+justify-content: center;
+color:#676464;
 }
