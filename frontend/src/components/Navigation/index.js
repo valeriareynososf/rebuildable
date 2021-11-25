@@ -45,16 +45,15 @@ function Navigation({ isLoaded }) {
 
   return (
     <nav>
-      {/* <NavLink exact to="/">
-          Home
-        </NavLink> */}
       <nav className="navcontainer">
-        {/* <ul> */}
-        {/* <nav> */}
         <NavLink exact to="/" className="homeLink">
           <img src={Rebuildable} alt="lego" className="homebLogo" />
         </NavLink>
         <nav className="navlinks">
+          <NavLink exact to="/about" className="aboutLink">
+            <i className="fas fa-user fa-lg"> ˅ </i>
+            <div>ABOUT</div>
+          </NavLink>
           <button onClick={() => setShowModal(true)} className="MOCBtn">
             <i className="fas fa-rocket fa-lg"> ˅ </i>
             <div>MOCs</div>
@@ -66,8 +65,6 @@ function Navigation({ isLoaded }) {
           )}
           {isLoaded && sessionLinks}
         </nav>
-        {/* </nav> */}
-        {/* </ul> */}
       </nav>
     </nav>
   );
