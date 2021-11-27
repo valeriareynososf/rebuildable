@@ -10,6 +10,7 @@ import UpdateBuild from './components/ProfilePage/UpdateMOC';
 import EditComment from './components/HomePage/EditComment';
 import * as sessionActions from './store/session';
 import Navigation from './components/Navigation';
+import Footer from "./components/Navigation/Footer"
 import About from "./components/Navigation/About";
 import SignupFormPage from './components/SignupFormPage/index';
 import { Modal } from './context/Modal';
@@ -66,6 +67,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Footer />
     </>
   );
 }
