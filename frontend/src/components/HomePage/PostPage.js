@@ -161,7 +161,7 @@ function deletePostf(id) {
         ) : null}
         {showAddComment && (
           <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="submitCForm">
               <br />
               <textarea
                 value={content}
@@ -181,7 +181,7 @@ function deletePostf(id) {
         )}
         <div>
           {comments !== null ? (
-            <div>
+            <div className="allComments">
               {Object.values(comments).map((comment) => (
                 <div key={comment.id}>
                   {showComments && (
@@ -238,24 +238,6 @@ function deletePostf(id) {
           ) : null}
         </div>
       </div>
-
-      {/* <div className="profilPosterInfo">
-        {posts !== null ? <div>{posts?.title}</div> : null}
-        by{" "}
-        {user !== null ? (
-          <>
-            {Object.values(user).map((poster) => (
-              <span key={poster.id}>
-                {posts?.userId === poster?.id ? (
-                  <Link key={poster?.id} to={`/users/${poster?.id}`}>
-                    {poster?.username}
-                  </Link>
-                ) : null}
-              </span>
-            ))}
-          </>
-        ) : null}
-      </div> */}
     </div>
   );
 }
