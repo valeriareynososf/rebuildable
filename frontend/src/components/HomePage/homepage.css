@@ -1,3 +1,4 @@
+
 .allPostsContainer {
     padding-top: 15px;
     margin: 0 430px;
@@ -7,12 +8,16 @@
     margin-left: 140px;
     margin-right: 140px;
 }
+
 .postContainer{
  margin: 0 400px;
  display: flex;
  /* flex-wrap: wrap; */
  flex-direction: column;
-  /* border: 3px solid green; */
+ /* align-items: center; */
+  /* border: 3px solid green;  */
+  width: auto;
+  height: auto;
 }
 
 .postsDiv {
@@ -60,6 +65,11 @@
 .PostImage, .instructionsImage {
     width: 650px;
     height: 485px;
+    /* display: flex; */
+   /* justify-content: center; */
+  margin: 0 auto;
+    /* border: 3px solid red;  */
+
 }
 
 .profileTitle {
@@ -198,4 +208,15 @@ flex: 1;
 .titleUsername:hover {
      color: rgb(40, 164, 201);
      cursor: pointer;
+}
+
+/* .postPContainer {
+    border: 2px solid red; */
+@media (max-width: 1280px) {
+  .PostImage, .instructionsImage {
+    width: 350px;
+    height: 285px;
+       /* border: 1px solid purple; */
+       display: flex;
+}
 }

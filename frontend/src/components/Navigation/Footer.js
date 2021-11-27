@@ -4,8 +4,12 @@ import "./Navigation.css";
 function Footer() {
   return (
     <div className="footerContainer">
-      <a href="https://github.com/valeriareynososf" target="_blank" className="linkedInLink">
-        <i className="fab fa-linkedin fa-lg"></i> Valeria Reynoso{" "}
+      <a
+        href="https://github.com/valeriareynososf"
+        target="_blank"
+        className="linkedInLink"
+      >
+        <i class="fab fa-github"></i> Valeria Reynoso{" "}
       </a>
     </div>
   );

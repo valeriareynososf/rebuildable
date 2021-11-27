@@ -14,17 +14,17 @@ function About() {
           creations and choose from the sets submitted by other designers.
         </p>
         <div className="picturesAbout">
-          <div>
+          <div className="photoDivs">
             <img src={legotruck} alt="TruckImage" />
             <p className="legoCap">I HAVE THIS</p>
           </div>
           <span className="mathSigns"> + </span>
-          <div>
+          <div className="photoDivs">
             <img src={randomlego} alt="randomLegoImage" />
             <p className="legoCap">AND A BUNCH OF THESE</p>
           </div>
           <span className="mathSigns"> = </span>
-          <div>
+          <div className="photoDivs">
             <img src={legocar} alt="CarImage" />
             <p className="legoCap">I CAN BUILD THIS, YAY!</p>
           </div>
