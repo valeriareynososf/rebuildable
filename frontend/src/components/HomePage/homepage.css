@@ -113,12 +113,11 @@ padding: 8px;
     margin-bottom: 20px;
 }
 .commentDiv{
-    margin-top: 10px;
+margin-top: 10px;
 margin-left: 0;
 font-family: Arial, Helvetica, sans-serif;
-/* margin-bottom: 20px; */
 display: flex;
-    flex-direction: row;
+flex-direction: row;
 }
 .userInfoC {
     margin-top: 15px;
