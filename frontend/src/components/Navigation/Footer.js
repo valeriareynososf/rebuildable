@@ -9,7 +9,15 @@ function Footer() {
         target="_blank"
         className="linkedInLink"
       >
-        <i class="fab fa-github"></i> Valeria Reynoso{" "}
+        <i class="fab fa-github"></i>
+      </a>{" "}
+      Valeria Reynoso{" "}
+      <a
+        href="https://www.linkedin.com/in/valeria-reynoso-castellanos-b89210149/"
+        target="_blank"
+        className="linkedInLink"
+      >
+        <i class="fab fa-linkedin"></i>
       </a>
     </div>
   );
