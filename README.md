@@ -12,6 +12,6 @@ Rebuildable is a Lego community where you can submit and search through MOCs (My
 ![](https://imgur.com/wC8ZrXD.png)
 
 Features
-Create posts of your own Lego creations
-Add comments to posts
-Search through the posts to find MOCs you'd like to build
+* Create posts of your own Lego creations
+* Add comments to posts
+* Search through the posts to find MOCs you'd like to build
