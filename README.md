@@ -11,7 +11,18 @@ Rebuildable is a Lego community where you can submit and search through MOCs (My
 ## PostPage
 ![](https://imgur.com/wC8ZrXD.png)
 
-Features
+# Features
 * Create posts of your own Lego creations
 * Add comments to posts
 * Search through the posts to find MOCs you'd like to build
+
+# Technologies Used
+### Frontend
+* React
+* Javascript
+
+### Backend
+* Expres
+* Javascript
+* Postgres
+* Heroku deployment
