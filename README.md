@@ -5,6 +5,12 @@ https://rebuildable.herokuapp.com/
 ---
 Rebuildable is a Lego community where you can submit and search through MOCs (My Own Creations) and Lego sets. It was inspired by Rebrickable and built using React.js and Express
 
+## Homepage
+![](https://imgur.com/IyRjIYs.png)
+
+## PostPage
+![](https://imgur.com/wC8ZrXD.png)
+
 Features
 Create posts of your own Lego creations
 Add comments to posts
