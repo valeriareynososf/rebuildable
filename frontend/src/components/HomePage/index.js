@@ -21,7 +21,7 @@ function HomePage() {
           {Object.values(post).map((single) => (
             <div key={single.id} className="postsDiv">
               <Link key={single.id} to={`/posts/${single.id}`} className="postTitle">
-                <img src={single.imgUrl} alt="PostImage" className="legoImg" />
+                <img src={single.imgUrl} alt="PostImage" className="legoImg" key={single.id}/>
                 <br />
                  {single.title}
               </Link>

@@ -9,7 +9,7 @@ function Footer() {
         target="_blank"
         className="linkedInLink"
       >
-        <i class="fab fa-github"></i>
+        <i className="fab fa-github"></i>
       </a>{" "}
       Valeria Reynoso{" "}
       <a
@@ -17,7 +17,7 @@ function Footer() {
         target="_blank"
         className="linkedInLink"
       >
-        <i class="fab fa-linkedin"></i>
+        <i className="fab fa-linkedin"></i>
       </a>
     </div>
   );

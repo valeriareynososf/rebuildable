@@ -230,3 +230,18 @@ font-size: 23px;
  margin-right: 0;
 }
 }
+
+.searchDiv {
+position: absolute;
+background-color: #FFFFFF;
+}
+
+.resultLink {
+  text-decoration: none;
+  color: #333333;
+  
+}
+
+.resultLink:hover {
+   color: #7EA92F;
+}
