@@ -22,7 +22,7 @@ Rebuildable is a Lego community where you can submit and search through MOCs (My
 * Javascript
 
 ### Backend
-* Expres
+* Expresd
 * Javascript
 * Postgres
 * Heroku deployment
