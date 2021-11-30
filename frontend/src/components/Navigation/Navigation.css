@@ -245,3 +245,8 @@ background-color: #FFFFFF;
 .resultLink:hover {
    color: #7EA92F;
 }
+
+.searchInput {
+  padding: 6px;
+  border-radius: 5px;
+}

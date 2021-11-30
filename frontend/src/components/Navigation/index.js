@@ -79,6 +79,7 @@ setSearch("");
             placeholder="Search Mocs or Sets"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
+            className="searchInput"
           />
           {searchValues && (
             <SearchResults
