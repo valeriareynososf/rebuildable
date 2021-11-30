@@ -76,7 +76,7 @@ setSearch("");
           <input
             type="text"
             onClick={inputFunction}
-            placeholder="Search Mocs or Sets"
+            placeholder="Search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="searchInput"
