@@ -19,7 +19,7 @@ const user = useSelector((store) => store.userReducer?.users);
 const id = useSelector((state) => state.session.user?.id);
 // const [showModal, setShowModal] = useState(false);
 const [errors, setErrors] = useState([]);
-const [showDetails, setShowDetails] = useState("");
+const [showDetails, setShowDetails] = useState(true);
 const [showInstructions, setShowInstructions] = useState("");
 const [showComments, setShowComments] = useState("");
 const [showAddComment, setShowAddComment] = useState("");
