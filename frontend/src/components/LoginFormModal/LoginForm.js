@@ -25,17 +25,6 @@ function LoginForm({setShowModal}) {
  };
   return (
     <div className="loginModalContainer">
-      {/* <div className="h3login">
-        Login (or{" "}
-        <Link
-          to={`/register`}
-          onClick={redirectClick}
-          className="createAccountLink"
-        >
-          Create Account
-        </Link>
-        )
-      </div> */}
       <form onSubmit={handleSubmit} className="formLogin">
         <div className="h3login">
           Login (or{" "}
@@ -48,12 +37,11 @@ function LoginForm({setShowModal}) {
           </Link>
           )
         </div>
-        {/* <ul>
+        <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
-        </ul> */}
-        {/* <label className="loginLabelModal"> */}
+        </ul>
         <input
           type="text"
           value={credential}
@@ -66,7 +54,6 @@ function LoginForm({setShowModal}) {
           <i className="fas fa-envelope"></i>
         </span>
         <br />
-        {/* <label className="loginLabelModal"> */}
         <input
           type="password"
           value={password}

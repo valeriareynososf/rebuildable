@@ -54,7 +54,6 @@ if (search.length) {
         <Link to={`/register`} className="registerBtn">
           REGISTER
         </Link>
-        {/* <SignupFormModal /> */}
         <button onClick={demonLogin} className="demoBtn">
           DEMO LOGIN
         </button>
