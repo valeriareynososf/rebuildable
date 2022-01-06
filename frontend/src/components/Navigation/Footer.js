@@ -13,7 +13,7 @@ function Footer() {
       </a>{" "}
       Valeria Reynoso{" "}
       <a
-        href="https://www.linkedin.com/in/valeria-reynoso-castellanos-b89210149/"
+        href="https://www.linkedin.com/in/valeria-reynoso-b89210149/"
         target="_blank"
         className="linkedInLink"
       >
