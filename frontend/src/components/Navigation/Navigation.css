@@ -1,10 +1,11 @@
 .profile-dropdown {
   position: absolute;
   color: #fff;
-  margin-top: 59px;
+  margin-top: 75px;
   background: #333;
   padding: 25px;
   list-style-type: none;
+  z-index: 1;
 }
 
 .navcontainer {
@@ -25,22 +26,38 @@
   justify-content: flex-end;
 }
 
-.MOCBtn, .profileBtn, .aboutLink {
+
+/* .profileBtn {
   background-color: #333333;
   border: none;
   color: #FFFFFF;
-  font-size: 12px;
+  font-size: 12px; 
   font-family: Arial, Helvetica, sans-serif;
   text-decoration: none;
-}
-.aboutLink {
-padding: 1px 6px;
-}
+}  */
 
-.MOCBtn:hover, .profileBtn:hover, .aboutLink:hover {
+/* .MOCBtn, .aboutLink {
+  background-color: #333333;
+  border: none;
+  color: #FFFFFF;
+  font-size: 12px; 
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+} */
+
+/* .aboutLink {
+padding: 1px 6px;
+} */
+
+.homeLink {
+  margin-right: 30px;
+  margin-left: 50px;
+  }
+
+/* .MOCBtn:hover, .profileBtn:hover, .aboutLink:hover {
 cursor: pointer;
 background-color: #7EA92F;
-}
+} */
 
 .fa-rocket, .fa-user {
   line-height: 35px;
@@ -86,7 +103,7 @@ cursor: pointer;
   border: none;
   color: #FFFFFF;
   text-decoration: none;
-  margin-top: 15px;
+  margin-top: 27px;
   padding: 1px 6px;
   font-size: 14px;
   font-family: Arial, Helvetica, sans-serif;
@@ -100,7 +117,7 @@ cursor: pointer;
 
 .homebLogo {
  width: auto;
-height: 74px;
+height: 73px;
 }
 
 .addMocForm {
@@ -193,9 +210,11 @@ color:#676464;
   display: flex;
    position: fixed;
    bottom: 0;
+   /* background-color: red; */
    background-color: #333333;
    width: 100%;
    padding: 10px;
+   margin-top: 50px;
    justify-content: center;
   align-items: center;
   margin-left: 0;

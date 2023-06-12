@@ -10,6 +10,16 @@ import UpdateBuild from "../ProfilePage/UpdateMOC"
 import EditProfile from "../ProfilePage/editProfile"
 import "./profile.css";
 
+import { Button,
+  Toolbar,
+  AppBar,
+  Box,
+  Typography,
+  InputAdornment,
+  Stack,
+  Paper
+} from '@mui/material';
+
 function ProfilePage() {
     const dispatch = useDispatch();
     const { userid } = useParams();
@@ -38,10 +48,17 @@ if (deletepost) {
 }
 }
   return (
-    <div>
-      <div className="profileDivTitle">
+    <Paper elevation={0} sx={{height: "850px"}}>
+       <Box sx={{ flexGrow: 1, marginLeft: "120px", marginRight:"120px" }}>
+          <Toolbar position="static" sx={{backgroundColor:"#ECE288"}}>
+          <Typography variant="h5" gutterBottom>
+          PROFILE
+          </Typography>
+          </Toolbar>
+        </Box>
+      {/* <div className="profileDivTitle">
         <h2 className="profileHeadline">PROFILE</h2>
-      </div>
+      </div> */}
       <div className="profileContainer">
         <div className="ProfileInfo">
           <img src={user.imgUrl} alt="UserImage" className="profileImg" />
@@ -101,7 +118,7 @@ if (deletepost) {
           ) : null}
         </div>
       </div>
-    </div>
+    </Paper>
   );
 }
 
