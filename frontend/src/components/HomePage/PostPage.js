@@ -7,6 +7,16 @@ import { Modal } from "../../context/Modal";
 import EditComment from "./EditComment";
 import { postComments, addComment, editComment, deleteComment } from "../../store/comments";
 import "./homepage.css";
+import { Button,
+  Toolbar,
+  AppBar,
+  Box,
+  Typography,
+  InputAdornment,
+  Stack
+} from '@mui/material';
+
+
 
 function PostPage() {
 const dispatch = useDispatch();
@@ -85,7 +95,27 @@ function deletePostf(id) {
     <div>
       {posts !== null ? (
         <>
-          <h2 className="profileTitle" key={posts?.id}>
+        <Box sx={{ flexGrow: 1, marginLeft: "120px", marginRight:"120px" }}>
+          <Toolbar position="static" sx={{backgroundColor:"#ECE288"}}>
+          <Typography variant="subtitle1" gutterBottom>
+          {posts?.title} by {" "}
+             {user !== null ? (
+              <> 
+                  {Object.values(user).map((poster) => (
+                  <span key={poster?.id}>
+                    {posts?.userId === poster?.id ? (
+                      <Link key={poster?.id} to={`/users/${poster?.id}`} className="titleUsername">
+                        {poster?.username}
+                      </Link>
+                    ) : null}
+                  </span>
+                ))}
+             </>
+            ) : null} 
+              </Typography>
+          </Toolbar>
+        </Box>
+          {/* <h2 className="profileTitle" key={posts?.id}>
             {posts?.title} by{" "}
             {user !== null ? (
               <>
@@ -100,7 +130,7 @@ function deletePostf(id) {
                 ))}
               </>
             ) : null}
-          </h2>
+          </h2> */}
         </>
       ) : null}
       <div className="postContainer">
@@ -216,7 +246,7 @@ function deletePostf(id) {
                               to={`/comments/${comment.id}`}
                               className="editCLink"
                             >
-                              Edit Comment
+                              edit
                             </Link>
                           </>
                         ) : null}

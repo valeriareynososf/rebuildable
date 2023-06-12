@@ -209,6 +209,7 @@ flex: 1;
 .titleUsername{
     color: #414141;
     text-decoration: none;
+    font-weight: 600;
 }
 
 .titleUsername:hover {

@@ -3,6 +3,16 @@ import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import { Link} from "react-router-dom";
 import "./Navigation.css";
+import { 
+  Toolbar,
+  AppBar,
+  Box,
+  InputAdornment,
+  Stack,
+  Button,
+  Typography
+} from '@mui/material';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -32,10 +42,16 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu} className="profileBtn">
-        <i className="fas fa-user fa-lg"> ˅ </i>
-        <div>ACCOUNT</div>
-      </button>
+      <Button onClick={openMenu} sx={{ color:"#FFFFFF", fontSize:"12px",'&:hover': {
+      backgroundColor: '#7EA92F',
+  }
+  }} > 
+     <Stack>
+       <i className="fas fa-user fa-lg"><KeyboardArrowDownIcon fontSize='12px'/></i>
+        <Typography variant="caption" gutterBottom>ACCOUNT</Typography> 
+     </Stack>
+   
+  </Button>
       {showMenu && (
         <ul className="profile-dropdown">
           <li>Profile</li>

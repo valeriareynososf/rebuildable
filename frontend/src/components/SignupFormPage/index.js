@@ -3,6 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css';
+import { Button,
+  Toolbar,
+  AppBar,
+  Box,
+  Typography,
+  InputAdornment,
+  Stack,
+  Paper
+} from '@mui/material';
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -29,14 +38,24 @@ function SignupFormPage() {
   };
 
   return (
-    <div className="registerContainer">
-      <div className="whyList">
+    <Paper elevation={0} sx={{height: "850px",margin: "60px 120px"}}>
+    {/* <div className="registerContainer"> */}
+      {/* <div className="whyList"> */}
+      <Stack  
+        direction="row"
+    // justifyContent="center"
+    // alignItems="center"
+    spacing={2}
+      >
+
+    
+      <Paper elevation={0} sx={{ width: "750px"}}>
         <h2>Why create a Rebuildable account?</h2>
-        <p className="whyParagraph">
+        <Typography variant="body1" gutterBottom>
           Find out exactly what LEGO parts you need to build your favorite MOCs.
           You will gain access to lots of free member-only features to help you
           build and share your LEGO creations.
-        </p>
+          </Typography>
         <ul>
           <li className="listofWhy">
             <i className="fas fa-puzzle-piece fa-lg"></i>{" "}
@@ -74,7 +93,7 @@ function SignupFormPage() {
             designers
           </li>
         </ul>
-      </div>
+      </Paper>
       {/* <h1 className="h1heading">
         {" "}
         <i className="fas fa-users fa-md"> </i> Register
@@ -83,7 +102,8 @@ function SignupFormPage() {
         Your username will be visible to others and can be changed later if you
         need to.
       </div> */}
-      <form onSubmit={handleSubmit} className="registerForm">
+      <Paper elevation={0}>
+              <form onSubmit={handleSubmit} className="registerForm">
         <h1 className="h1heading">
           {" "}
           <i className="fas fa-users fa-md"> </i> Register
@@ -144,8 +164,12 @@ function SignupFormPage() {
         >
           <i className="fas fa-check"> </i>Register
         </button>
-      </form>
-    </div>
+      </form>  
+            </Paper>
+     
+       </Stack>
+    {/* </div> */}
+    </Paper>
   );
 }
 

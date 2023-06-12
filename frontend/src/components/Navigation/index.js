@@ -10,6 +10,19 @@ import * as sessionActions from "../../store/session";
 import "./Navigation.css";
 import Rebuildable from "../../images/Rebuildable.png";
 import SearchResults from "../Navigation/Search.js"
+import TextField from '@mui/material/TextField';
+import SearchIcon from '@mui/icons-material/Search';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { 
+        Toolbar,
+        AppBar,
+        Box,
+        InputAdornment,
+        Stack,
+        Button,
+        Typography
+} from '@mui/material';
+
 
 function Navigation({ isLoaded }) {
   const dispatch = useDispatch();
@@ -66,20 +79,28 @@ setSearch("");
 }
 
   return (
-    <nav>
-      <nav className="navcontainer">
-        <NavLink exact to="/" className="homeLink">
+    <>
+  <Box sx={{ flexGrow: 1, marginLeft: "120px", marginRight:"120px" }}>
+    <AppBar position="sticky" sx={{backgroundColor:"#333333"}}>
+    <Toolbar>
+   
+    <NavLink exact to="/" className="homeLink">
           <img src={Rebuildable} alt="lego" className="homebLogo" />
         </NavLink>
+     
         <span onClick={searchFunction}>
-          <input
-            type="text"
-            onClick={inputFunction}
-            placeholder="Search"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="searchInput"
-          />
+          <TextField
+          variant="outlined" 
+          id="outlined-basic"
+          placeholder="Search..."
+          margin="dense"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          sx={{ m: 1, backgroundColor: '#FFFFFF',borderRadius: '5px' }}
+          InputProps={{
+            startAdornment: <InputAdornment position="start"><SearchIcon /></InputAdornment>
+          }}
+        />
           {searchValues && (
             <SearchResults
               search={search}
@@ -88,24 +109,40 @@ setSearch("");
             />
           )}
         </span>
-        <nav className="navlinks">
-          <NavLink exact to="/about" className="aboutLink">
-            <i className="fas fa-user fa-lg"> ˅ </i>
-            <div>ABOUT</div>
-          </NavLink>
-          <button onClick={() => setShowModal(true)} className="MOCBtn">
-            <i className="fas fa-rocket fa-lg"> ˅ </i>
-            <div>MOCs</div>
-          </button>
+         <Box sx={{ flexGrow: 1 }} />
+       <Box sx={{ display: { xs: 'flex', md: 'flex' }, marginRight:'50px' }}>
+       
+         <NavLink exact to="/about" className="aboutLink">     
+          <Button sx={{ color:"#FFFFFF", fontSize:"12px",'&:hover': {
+      backgroundColor: '#7EA92F',
+  }
+  }} > 
+       <Stack>
+               <i className="fas fa-user fa-lg"><KeyboardArrowDownIcon fontSize='12px'/></i>
+               <Typography variant="caption" gutterBottom>ABOUT</Typography> 
+            </Stack>
+          </Button>
+         </NavLink>    
+
+         <Button sx={{color:"#FFFFFF", fontSize:"12px",'&:hover': { 
+          backgroundColor: '#7EA92F',
+        }}} onClick={() => setShowModal(true)} >
+          <Stack>
+          <i className="fas fa-rocket fa-lg"><KeyboardArrowDownIcon fontSize='12px'/></i>
+               <Typography variant="caption" gutterBottom>MOCs</Typography> 
+          </Stack>
+          </Button>
           {showModal && (
             <Modal onClose={() => setShowModal(false)}>
               <AddMOC setShowModal={setShowModal} />
             </Modal>
           )}
-          {isLoaded && sessionLinks}
-        </nav>
-      </nav>
-    </nav>
+          {isLoaded && sessionLinks}  
+        </Box>
+        </Toolbar>
+      </AppBar>
+  </Box>
+    </>
   );
 }
 

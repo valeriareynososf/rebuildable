@@ -2,11 +2,26 @@ import "./Navigation.css";
 import legocar from "../../images/legocar.jpeg"
 import legotruck from "../../images/legotruck.jpeg"
 import randomlego from "../../images/randomlego.jpeg"
+import { Button,
+  Toolbar,
+  AppBar,
+  Box,
+  Typography,
+  InputAdornment,
+  Stack,
+  Paper
+} from '@mui/material';
 
 function About() {
   return (
-    <>
-      <h1 className="aboutTitle">About</h1>
+    <Paper elevation={0} sx={{ height: "850px"}}>
+    <Box sx={{ flexGrow: 1, marginLeft: "120px", marginRight:"120px" }}>
+          <Toolbar position="static" sx={{backgroundColor:"#ECE288"}}>
+          <Typography variant="h5" gutterBottom>
+          About
+          </Typography>
+          </Toolbar>
+        </Box>
       <div className="aboutContainer">
         <h2 className="aboutH2">What is Rebuildable?</h2>
         <p className="aboutParagraph">
@@ -30,7 +45,7 @@ function About() {
           </div>
         </div>
       </div>
-    </>
+    </Paper>
   );
 }
 
