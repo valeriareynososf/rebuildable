@@ -32,10 +32,6 @@ const user = useSelector((store) => store.userReducer?.users);
 const id = useSelector((state) => state.session.user?.id);
 // const [showModal, setShowModal] = useState(false);
 const [errors, setErrors] = useState([]);
-// const [showDetails, setShowDetails] = useState(true);
-// const [showInstructions, setShowInstructions] = useState("");
-// const [showComments, setShowComments] = useState("");
-// const [showAddComment, setShowAddComment] = useState("");
 const [value, setValue] = useState(0);
 
 const handleChange = (event, newValue) => {
@@ -57,33 +53,6 @@ const handleSubmit = (e) => {
   return dispatch(addComment(content, postId));
 }
 
-// function showAddComments(){
-//   setShowAddComment(true)
-// setShowInstructions(false);
-// setShowDetails(false);
-// setShowComments(false);
-// }
-
-// function showTheComments() {
-//   setShowAddComment(false)
-//   setShowComments(true);
-//   setShowInstructions(false);
-//   setShowDetails(false);
-// }
-
-// function hideInstructions(){
-//   setShowAddComment(false);
-//   setShowInstructions(false);
-//   setShowComments(false);
-//   setShowDetails(true);
-// }
-
-// function hideDetails(){
-//   setShowAddComment(false);
-// setShowInstructions(true);
-// setShowComments(false);
-// setShowDetails(false);
-// }
 
 function deleteBtn(id){
 const deleted = dispatch(deleteComment(id));

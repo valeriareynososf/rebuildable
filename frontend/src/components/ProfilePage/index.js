@@ -48,7 +48,7 @@ if (deletepost) {
 }
 }
   return (
-    <Paper elevation={0} sx={{height: "850px", border: "1px solid red"}}>
+    <Paper elevation={0} sx={{height: "850px"}}>
        <Box sx={{ flexGrow: 1, marginLeft: "120px", marginRight:"120px" }}>
           <Toolbar position="static" sx={{backgroundColor:"#ECE288"}}>
           <Typography variant="h5" gutterBottom>
