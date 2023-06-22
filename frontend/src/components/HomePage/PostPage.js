@@ -13,7 +13,10 @@ import { Button,
   Box,
   Typography,
   InputAdornment,
-  Stack
+  Tabs,
+  Tab,
+  Stack,
+  Paper
 } from '@mui/material';
 
 
@@ -29,10 +32,15 @@ const user = useSelector((store) => store.userReducer?.users);
 const id = useSelector((state) => state.session.user?.id);
 // const [showModal, setShowModal] = useState(false);
 const [errors, setErrors] = useState([]);
-const [showDetails, setShowDetails] = useState(true);
-const [showInstructions, setShowInstructions] = useState("");
-const [showComments, setShowComments] = useState("");
-const [showAddComment, setShowAddComment] = useState("");
+// const [showDetails, setShowDetails] = useState(true);
+// const [showInstructions, setShowInstructions] = useState("");
+// const [showComments, setShowComments] = useState("");
+// const [showAddComment, setShowAddComment] = useState("");
+const [value, setValue] = useState(0);
+
+const handleChange = (event, newValue) => {
+  setValue(newValue);
+};
 
 useEffect(() => {
   dispatch(getUser());
@@ -49,33 +57,33 @@ const handleSubmit = (e) => {
   return dispatch(addComment(content, postId));
 }
 
-function showAddComments(){
-  setShowAddComment(true)
-setShowInstructions(false);
-setShowDetails(false);
-setShowComments(false);
-}
+// function showAddComments(){
+//   setShowAddComment(true)
+// setShowInstructions(false);
+// setShowDetails(false);
+// setShowComments(false);
+// }
 
-function showTheComments() {
-  setShowAddComment(false)
-  setShowComments(true);
-  setShowInstructions(false);
-  setShowDetails(false);
-}
+// function showTheComments() {
+//   setShowAddComment(false)
+//   setShowComments(true);
+//   setShowInstructions(false);
+//   setShowDetails(false);
+// }
 
-function hideInstructions(){
-  setShowAddComment(false);
-  setShowInstructions(false);
-  setShowComments(false);
-  setShowDetails(true);
-}
+// function hideInstructions(){
+//   setShowAddComment(false);
+//   setShowInstructions(false);
+//   setShowComments(false);
+//   setShowDetails(true);
+// }
 
-function hideDetails(){
-  setShowAddComment(false);
-setShowInstructions(true);
-setShowComments(false);
-setShowDetails(false);
-}
+// function hideDetails(){
+//   setShowAddComment(false);
+// setShowInstructions(true);
+// setShowComments(false);
+// setShowDetails(false);
+// }
 
 function deleteBtn(id){
 const deleted = dispatch(deleteComment(id));
@@ -92,7 +100,7 @@ function deletePostf(id) {
   }
 }
   return (
-    <div>
+    <Paper elevation={0} sx={{ minHeight: "850px"}}>
       {posts !== null ? (
         <>
         <Box sx={{ flexGrow: 1, marginLeft: "120px", marginRight:"120px" }}>
@@ -115,27 +123,13 @@ function deletePostf(id) {
               </Typography>
           </Toolbar>
         </Box>
-          {/* <h2 className="profileTitle" key={posts?.id}>
-            {posts?.title} by{" "}
-            {user !== null ? (
-              <>
-                {Object.values(user).map((poster) => (
-                  <span key={poster.id}>
-                    {posts?.userId === poster?.id ? (
-                      <Link key={poster?.id} to={`/users/${poster?.id}`} className="titleUsername">
-                        {poster?.username}
-                      </Link>
-                    ) : null}
-                  </span>
-                ))}
-              </>
-            ) : null}
-          </h2> */}
         </>
       ) : null}
-      <div className="postContainer">
+      <Paper elevation={0} sx={{ margin: "60px 200px"}}>
+        <Stack sx={{ alignItems: "center", justifyContent:"center"}}>
+
         {posts !== null ? (
-          <div key={posts.id} className="postInformation">
+        <Paper elevation={0} sx={{ width: "850px"}}>
             {id === posts?.userId ? (
               <>
                 <Link
@@ -143,7 +137,7 @@ function deletePostf(id) {
                   key={posts.id}
                   className="updateMocLink"
                 >
-                  Update MOC
+                  edit
                 </Link>
                 <button
                   onClick={() => deletePostf(posts.id)}
@@ -155,66 +149,57 @@ function deletePostf(id) {
             ) : null}
             <br />
             <img src={posts.imgUrl} alt="PostImage" className="PostImage" />
-            <br />
-            <br />
-            <button onClick={hideInstructions} className="postTabsBtn">
-              Details
-            </button>
-            <button onClick={hideDetails} className="postTabsBtn">
-              Instructions
-            </button>
-            <button onClick={showTheComments} className="postTabsBtn">
-              Comments
-            </button>
-            <button onClick={showAddComments} className="postTabsBtn">
-              Add Comment
-            </button>
-            {showDetails && (
-              <div>
-                <div>
-                  <p className="pDetails">{posts.details}</p>
-                </div>
-              </div>
-            )}
-            {showInstructions && (
-              <div>
-                <div>
-                  <img
-                    src={posts.instructions}
-                    alt="LegoInstructions"
-                    className="instructionsImage"
-                  />
-                </div>
-              </div>
-            )}
-          </div>
-        ) : null}
-        {showAddComment && (
-          <div>
-            <form onSubmit={handleSubmit} className="submitCForm">
-              <br />
-              <textarea
-                value={content}
-                required
-                onChange={(e) => setContent(e.target.value)}
-              />
-              <br />
-              <button
-                type="submit"
-                disabled={errors.length > 0}
-                className="AddCPost"
-              >
-                Add Comment
-              </button>
-            </form>
-          </div>
-        )}
-        <div>
+
+            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+          <Tab label="Details" value={0} />
+          <Tab label="Instructions" value={1}/>
+          <Tab label="Comments" value={2} />
+          <Tab label="Add Comment" value={3} />
+        </Tabs>
+      </Box>
+      <div
+      role="tabpanel"
+      index={0}
+      hidden={value !== 0}
+      id={0}
+      style={{marginTop:'15px'}}
+    >
+      <Typography variant="body1" component="h2" sx={{ wordWrap: "word-break", whiteSpace: 'normal' }}>
+        
+          {posts.details}
+      </Typography>
+    
+      </div>
+      <div
+      role="tabpanel"
+      index={1}
+      hidden={value !== 1}
+      id={1}
+      style={{marginTop:'15px'}}
+    >
+      <div>
+        <img
+          src={posts.instructions}
+          alt="LegoInstructions"
+          style={{width:'650px', height:'480px'}}
+          //className="instructionsImage"
+           /> 
+      </div>
+     
+      </div>
+      <div
+      role="tabpanel"
+      index={2}
+      hidden={value !== 2}
+      id={2}
+      style={{marginTop:'15px'}}
+    >
+            <div>
           {comments !== null ? (
             <div className="allComments">
               {Object.values(comments).map((comment) => (
                 <div key={comment.id}>
-                  {showComments && (
                     <div className="commentDiv">
                       <div className="userInfoC">
                         {user !== null ? (
@@ -260,7 +245,7 @@ function deletePostf(id) {
                         ) : null}
                       </div>
                     </div>
-                  )}
+                 
                 </div>
               ))}
               <br />
@@ -268,7 +253,38 @@ function deletePostf(id) {
           ) : null}
         </div>
       </div>
-    </div>
+
+      <div
+      role="tabpanel"
+      index={3}
+      hidden={value !== 3}
+      id={3}
+      style={{marginTop:'15px'}}
+    >
+      <div>
+            <form onSubmit={handleSubmit} className="submitCForm">
+              <br />
+              <textarea
+                value={content}
+                required
+                onChange={(e) => setContent(e.target.value)}
+              />
+              <br />
+              <button
+                type="submit"
+                disabled={errors.length > 0}
+                className="AddCPost"
+              >
+                Add Comment
+              </button>
+            </form>
+          </div>
+      </div>
+          </Paper>
+        ) : null}
+        </Stack>
+        </Paper>
+    </Paper>
   );
 }
 

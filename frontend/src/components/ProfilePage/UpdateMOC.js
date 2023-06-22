@@ -3,6 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { editPost } from "../../store/posts";
 import "./profile.css";
+import { 
+  Paper
+} from '@mui/material';
 
 function UpdateBuild() {
   const dispatch = useDispatch();
@@ -13,6 +16,7 @@ function UpdateBuild() {
   const [imgUrl, setImgUrl] = useState(post?.imgUrl);
   const [instructions, setInstructions] = useState(post?.instructions);
   const [details, setDetails] = useState(post?.details);
+  
   // const [errors, setErrors] = useState([]);
   //const id = useSelector((state) => state.session.user?.id);
 
@@ -25,6 +29,7 @@ function UpdateBuild() {
   };
 
   return (
+    <Paper elevation={0} sx={{ height: "850px"}}>
     <form onSubmit={handleSubmit} className="updateMocForm">
       <label>Title</label>
       <input
@@ -64,6 +69,7 @@ function UpdateBuild() {
         Update MOC
       </button>
     </form>
+    </Paper>
   );
 }
 

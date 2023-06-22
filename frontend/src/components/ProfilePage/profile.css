@@ -9,8 +9,9 @@
 }
 
 .profileContainer {
- margin-right: 445px;
-  margin-left: 420px;
+    margin-top: 60px;
+ margin-right: 400px;
+  margin-left: 400px;
   display: flex;
 }
 
@@ -87,10 +88,13 @@
 
 .deletePostBtn {
     border: none;
+    background-color: #fffFFF;
+    color: #2b2a2a;
+    /* border: none;
     background-color: red;
     color: #fffFFF;
     border-radius: 8px;
-    padding: 5px;
+    padding: 5px; */
 }
 .deletePostBtn:hover {
     cursor: pointer;

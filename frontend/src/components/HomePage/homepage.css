@@ -7,16 +7,18 @@
     justify-content: space-between;
     margin-left: 140px;
     margin-right: 140px;
+    /* border: 1px solid red; */
 }
 
 .postContainer{
- margin: 0 400px;
+ margin: 60 400px;
  display: flex;
  /* flex-wrap: wrap; */
  flex-direction: column;
  /* align-items: center; */
   /* border: 3px solid green;  */
   width: auto;
+  border: 1px solid red;
   height: auto;
 }
 
@@ -146,6 +148,7 @@ color: rgb(40, 164, 201);
  margin-right: 650px;
  display: flex;
  flex-direction: column;
+ height: 850px;
 }
 
 .EditCForm {
@@ -204,6 +207,7 @@ flex: 1;
 
 .postInformation {
     flex: 3;
+    border:2px solid red;
 }
 
 .titleUsername{

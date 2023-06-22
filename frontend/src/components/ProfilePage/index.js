@@ -48,7 +48,7 @@ if (deletepost) {
 }
 }
   return (
-    <Paper elevation={0} sx={{height: "850px"}}>
+    <Paper elevation={0} sx={{height: "850px", border: "1px solid red"}}>
        <Box sx={{ flexGrow: 1, marginLeft: "120px", marginRight:"120px" }}>
           <Toolbar position="static" sx={{backgroundColor:"#ECE288"}}>
           <Typography variant="h5" gutterBottom>
@@ -56,9 +56,6 @@ if (deletepost) {
           </Typography>
           </Toolbar>
         </Box>
-      {/* <div className="profileDivTitle">
-        <h2 className="profileHeadline">PROFILE</h2>
-      </div> */}
       <div className="profileContainer">
         <div className="ProfileInfo">
           <img src={user.imgUrl} alt="UserImage" className="profileImg" />

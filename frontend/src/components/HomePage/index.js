@@ -3,7 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getPosts } from "../../store/posts";
 import { getUser } from "../../store/users";
-import "./homepage.css";
+import { Button,
+  Card,
+  Box,
+  Typography,
+  CardActionArea,
+  CardContent,
+  Grid,
+  Paper,
+  CardMedia
+} from '@mui/material';
 
 function HomePage() {
      const dispatch = useDispatch();
@@ -15,36 +24,55 @@ function HomePage() {
      }, [dispatch]);
 
   return (
-    <div className="allPostsContainer">
-      {post !== null ? (
+       <Paper elevation={0} sx={{ height: "850px"}}>
+             <Box sx={{ flexGrow: 1, margin:"60px 120px" }}>  
+        {post !== null ? (
         <>
+  <Grid container spacing={2}>
           {Object.values(post).map((single) => (
-            <div key={single.id} className="postsDiv">
-              <Link key={single.id} to={`/posts/${single.id}`} className="postTitle">
-                <img src={single.imgUrl} alt="PostImage" className="legoImg" key={single.id}/>
-                <br />
-                 {single.title}
-              </Link>
-              <br />
-              by{" "}
-              {users !== null ? (
+        <Grid item >
+            <Card sx={{ maxWidth: 345}}>
+      <CardActionArea>
+      <Link key={single.id} to={`/posts/${single.id}`} style={{textDecoration:'none'}}>
+        <CardMedia
+        sx={{objectFit:"contain"}}
+          component="img"
+          height="280"
+          image={single.imgUrl}
+          alt="lego image"
+        />
+        <CardContent>
+      
+          <Typography variant="body2" color="text.secondary">
+          {single.title}
+          </Typography>
+              <Typography gutterBottom variant="subtitle1" component="div" color="text.secondary" sx={{textDecoration:'none'}}>
+                by{' '}
+          {users !== null ? (
                 <>
                   {Object.values(users).map((user) => (
-                    <span key={user.id}>
+                    <span key={user?.id}>
                       {single.userId === user.id ? (
-                        <Link key={user.id} to={`/users/${user.id}`} className="byUserLink">
-                          {user.username}
+                        <Link key={user?.id} to={`/users/${user?.id}`} style={{textDecoration:'none', color:"#7EA92F"}}>
+                         {user?.username}
                         </Link>
                       ) : null}
                     </span>
                   ))}
                 </>
               ) : null}
-            </div>
+          </Typography>
+        </CardContent>
+        </Link>
+      </CardActionArea>
+    </Card>
+        </Grid>
           ))}
+          </Grid>
         </>
-      ) : null}
-    </div>
+      ) : null} 
+    </Box>
+    </Paper>
   );
 }
 
