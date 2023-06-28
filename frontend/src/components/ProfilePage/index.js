@@ -50,8 +50,7 @@ if (deletepost) {
   window.location.reload();
 }
 }
-console.log("profModal", profModal);
-console.log("mocModal", mocModal)
+
   return (
     <Paper elevation={0} sx={{height: "950px"}}>
        <Box sx={{ flexGrow: 1, marginLeft: "120px", marginRight:"120px" }}>
@@ -108,7 +107,6 @@ console.log("mocModal", mocModal)
               edit
               </button>
               {showModal && mocModal && (
-                console.log("hey post id", postId),
                 <Modal onClose={() => {setShowModal(false); setMOCModal(false);} }>
                   <UpdateBuild setShowModal={setShowModal} postId={postId} />
                 </Modal>

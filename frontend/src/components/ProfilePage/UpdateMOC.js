@@ -7,11 +7,12 @@ import {
   Paper
 } from '@mui/material';
 
-function UpdateBuild({ setShowModal, postId }) {
+const UpdateBuild = ({ setShowModal, postId })=> {
+
   const dispatch = useDispatch();
   //  const { postId } = useParams();
     const history = useHistory();
-    const post = useSelector((store) => store.postReducer?.posts?.[postId]);
+    const post = useSelector((store) => store.postReducer?.posts?.[postId] || store.postReducer?.posts);
   const [title, setTitle] = useState(post?.title);
   const [imgUrl, setImgUrl] = useState(post?.imgUrl);
   const [instructions, setInstructions] = useState(post?.instructions);
@@ -32,7 +33,7 @@ function UpdateBuild({ setShowModal, postId }) {
   return (
     <Paper elevation={0} >
     <form onSubmit={handleSubmit} className="updateMocForm">
-      <label>Title {postId}</label>
+      <label>Title </label>
       <input
         type="text"
         value={title}

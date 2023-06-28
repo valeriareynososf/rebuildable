@@ -5,6 +5,7 @@ import { singlePost, deletePost} from "../../store/posts";
 import { getUser } from "../../store/users";
 import { Modal } from "../../context/Modal";
 import EditComment from "./EditComment";
+import UpdateBuild from "../ProfilePage/UpdateMOC"
 import { postComments, addComment, editComment, deleteComment } from "../../store/comments";
 import "./homepage.css";
 import { Button,
@@ -16,7 +17,12 @@ import { Button,
   Tabs,
   Tab,
   Stack,
-  Paper
+  Paper,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle
 } from '@mui/material';
 
 
@@ -30,10 +36,18 @@ const [content, setContent] = useState("");
 const comments = useSelector((store) => store.commentReducer.comments);
 const user = useSelector((store) => store.userReducer?.users);
 const id = useSelector((state) => state.session.user?.id);
-// const [showModal, setShowModal] = useState(false);
+const [showModal, setShowModal] = useState(false);
 const [errors, setErrors] = useState([]);
 const [value, setValue] = useState(0);
+const [open, setOpen] = useState(false);
 
+const handleClickOpen = () => {
+  setOpen(true);
+};
+
+const handleClose = () => {
+  setOpen(false);
+};
 const handleChange = (event, newValue) => {
   setValue(newValue);
 };
@@ -101,15 +115,24 @@ function deletePostf(id) {
         <Paper elevation={0} sx={{ width: "950px"}}>
             {id === posts?.userId ? (
               <>
-                <Link
+                {/* <Link
                   to={`/posts/${posts.id}/edit`}
                   key={posts.id}
                   className="updateMocLink"
                 >
                   edit
-                </Link>
+                </Link> */}
+          <button onClick={() => {setShowModal(true)}} className="editMocBtn">
+              edit
+              </button>
+              {showModal && (
+                <Modal onClose={() => {setShowModal(false)} }>
+                  <UpdateBuild setShowModal={setShowModal} postId={posts.id} />
+                </Modal>
+              )}
                 <button
-                  onClick={() => deletePostf(posts.id)}
+                onClick={handleClickOpen}
+                  // onClick={() => deletePostf(posts.id)}
                   className="deletePostBtn"
                 >
                   delete
@@ -251,6 +274,28 @@ function deletePostf(id) {
       </div>
           </Paper>
         ) : null}
+          <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          Are you sure you want to delete this post?
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            <b>{posts.title}</b> will be deleted permanently. You cannot undo this action.
+            {posts.id}
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Cancel</Button>
+          <Button onClick={() => deletePostf(posts.id)} autoFocus color="error">
+            Delete
+          </Button>
+        </DialogActions>
+      </Dialog>
         </Stack>
         </Paper>
     </Paper>
