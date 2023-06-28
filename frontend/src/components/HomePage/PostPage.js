@@ -286,7 +286,6 @@ function deletePostf(id) {
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             <b>{posts.title}</b> will be deleted permanently. You cannot undo this action.
-            {posts.id}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
