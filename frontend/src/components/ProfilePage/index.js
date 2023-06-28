@@ -27,6 +27,9 @@ const user = useSelector((state) => state.singleReducer.main);
 const posts = useSelector((store) => store.postReducer?.posts);
 const id = useSelector((state) => state.session.user?.id);
 const [showModal, setShowModal] = useState(false);
+const [profModal, setProfModal] = useState(false);
+const [mocModal, setMOCModal] = useState(false);
+const [postId, setPostId] = useState(false);
 //const [showDelete, setShowDelete] = useState("");
 //   const [showModal, setShowModal] = useState(false);
 
@@ -47,6 +50,8 @@ if (deletepost) {
   window.location.reload();
 }
 }
+console.log("profModal", profModal);
+console.log("mocModal", mocModal)
   return (
     <Paper elevation={0} sx={{height: "950px"}}>
        <Box sx={{ flexGrow: 1, marginLeft: "120px", marginRight:"120px" }}>
@@ -62,10 +67,10 @@ if (deletepost) {
           <br />
           {user.id === id && user.id !== 1 ? (
             <>
-              <button onClick={() => setShowModal(true)} className="editProBtn">
+              <button onClick={() => {setShowModal(true); setProfModal(true)}} className="editProBtn">
                 <i className="fas fa-edit"></i> Edit Profile{" "}
               </button>
-              {showModal && (
+              {showModal && profModal && (
                 <Modal onClose={() => setShowModal(false)}>
                   <EditProfile setShowModal={setShowModal} user={user} />
                 </Modal>
@@ -99,9 +104,15 @@ if (deletepost) {
                       <br/>
                       {id === post.userId ? (
                         <>
-                          <Link to={`/posts/${post.id}/edit`} key={post.id} className="updateMocLink">
-                           update
-                          </Link>
+                <button onClick={() => {setShowModal(true); setMOCModal(true); setPostId(post.id)}} className="editMocBtn">
+              edit
+              </button>
+              {showModal && mocModal && (
+                console.log("hey post id", postId),
+                <Modal onClose={() => {setShowModal(false); setMOCModal(false);} }>
+                  <UpdateBuild setShowModal={setShowModal} postId={postId} />
+                </Modal>
+              )}
                           <button onClick={() => deletePostf(post.id)} className="deletePostBtn">
                             delete
                           </button>

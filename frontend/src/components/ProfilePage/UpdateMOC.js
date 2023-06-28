@@ -7,9 +7,9 @@ import {
   Paper
 } from '@mui/material';
 
-function UpdateBuild() {
+function UpdateBuild({ setShowModal, postId }) {
   const dispatch = useDispatch();
-   const { postId } = useParams();
+  //  const { postId } = useParams();
     const history = useHistory();
     const post = useSelector((store) => store.postReducer?.posts?.[postId]);
   const [title, setTitle] = useState(post?.title);
@@ -25,13 +25,14 @@ function UpdateBuild() {
     const editp = dispatch(editPost({ title, imgUrl, details, instructions }, postId));
     if (editp){
       history.push(`/posts/${postId}`);
+      setShowModal(false);
     }
   };
 
   return (
-    <Paper elevation={0} sx={{ height: "950px"}}>
+    <Paper elevation={0} >
     <form onSubmit={handleSubmit} className="updateMocForm">
-      <label>Title</label>
+      <label>Title {postId}</label>
       <input
         type="text"
         value={title}

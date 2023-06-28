@@ -76,6 +76,18 @@
 .insidePostdiv {
     margin-bottom: 25px;
 }
+.editMocBtn {
+    border: none;
+    background-color: #fffFFF;
+    color: #2b2a2a;
+}
+
+.editMocBtn:hover {
+    cursor: pointer;
+    background-color: #fffFFF;
+    color: #7EA930;
+}
+
 .updateMocLink{
     padding: 15px;
     text-decoration: none;
@@ -83,6 +95,7 @@
 }
 
 .updateMocLink:hover{
+    
    color: #7EA930;
 }
 
