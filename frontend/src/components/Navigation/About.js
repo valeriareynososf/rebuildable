@@ -14,7 +14,7 @@ import { Button,
 
 function About() {
   return (
-    <Paper elevation={0} sx={{ height: "850px"}}>
+    <Paper elevation={0} sx={{ height: "950px"}}>
     <Box sx={{ flexGrow: 1, marginLeft: "120px", marginRight:"120px" }}>
           <Toolbar position="static" sx={{backgroundColor:"#ECE288"}}>
           <Typography variant="h5" gutterBottom>

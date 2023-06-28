@@ -24,11 +24,15 @@ function HomePage() {
      }, [dispatch]);
 
   return (
-       <Paper elevation={0} sx={{ height: "850px"}}>
-             <Box sx={{ flexGrow: 1, margin:"60px 120px" }}>  
+       <Paper elevation={0} sx={{ height: "950px"}}>
+             <Box sx={{ flexGrow: 1, margin:"60px 120px"}}>  
         {post !== null ? (
         <>
-  <Grid container spacing={2}>
+  <Grid 
+  container spacing={2} 
+  alignItems="center"
+  justifyContent="center"
+  >
           {Object.values(post).map((single) => (
         <Grid item >
             <Card sx={{ maxWidth: 345}}>

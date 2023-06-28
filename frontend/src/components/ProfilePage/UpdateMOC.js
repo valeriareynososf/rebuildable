@@ -29,7 +29,7 @@ function UpdateBuild() {
   };
 
   return (
-    <Paper elevation={0} sx={{ height: "850px"}}>
+    <Paper elevation={0} sx={{ height: "950px"}}>
     <form onSubmit={handleSubmit} className="updateMocForm">
       <label>Title</label>
       <input

@@ -69,7 +69,7 @@ function deletePostf(id) {
   }
 }
   return (
-    <Paper elevation={0} sx={{ minHeight: "850px"}}>
+    <Paper elevation={0} sx={{ minHeight: "950px"}}>
       {posts !== null ? (
         <>
         <Box sx={{ flexGrow: 1, marginLeft: "120px", marginRight:"120px" }}>
@@ -98,7 +98,7 @@ function deletePostf(id) {
         <Stack sx={{ alignItems: "center", justifyContent:"center"}}>
 
         {posts !== null ? (
-        <Paper elevation={0} sx={{ width: "850px"}}>
+        <Paper elevation={0} sx={{ width: "950px"}}>
             {id === posts?.userId ? (
               <>
                 <Link

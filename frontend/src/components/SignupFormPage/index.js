@@ -38,7 +38,7 @@ function SignupFormPage() {
   };
 
   return (
-    <Paper elevation={0} sx={{height: "850px",margin: "60px 120px"}}>
+    <Paper elevation={0} sx={{height: "950px",margin: "60px 120px"}}>
     {/* <div className="registerContainer"> */}
       {/* <div className="whyList"> */}
       <Stack  
